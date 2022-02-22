@@ -34,7 +34,9 @@ sap.ui.define([
             },
             onAnular: function (oEvent) {
                 var oTable = this.byId("zgcdepositos.zgcdepositos::sap.suite.ui.generic.template.ListReport.view.ListReport::ZCDS_GC_DEPO_ODATA--GridTable");
+                var sItems = []
                 var sItems = oTable.getPlugins()[0].getSelectedIndices();
+                console.log(sItems)
                 for (var i = 0; i < sItems.length; i++) {
                     var indice = sItems[i];
                     var oContext = oTable.getContextByIndex(indice);
@@ -61,21 +63,25 @@ sap.ui.define([
                               sap.ui.getCore().getMessageManager().addMessages(oMessage); */
 
                             //
-                            switch( log[i].severity)
-                             {
-                                 case "error"  : sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.ERROR, "Error");break;
-                                 case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito");break;
-                                 case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia");break;
-                                 case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información");break;
-                                 default: 
-                                 sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, "");break;
-                             }
+                            switch (log[i].severity) {
+                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.ERROR, "Error"); break;
+                                case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                default:
+                                    sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+
+
+                            }
                             //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
 
                         }
+                        oTable.getModel().resetChanges();
+
                         //sap.
                         //console.log(errorObj1);
                         //MessageToast.show("Documento Anulados");
+                        
                     },
                     error: function (oError) {
                         // Error
@@ -134,6 +140,7 @@ sap.ui.define([
                 var oTable = this.byId("zgcdepositos.zgcdepositos::sap.suite.ui.generic.template.ListReport.view.ListReport::ZCDS_GC_DEPO_ODATA--GridTable");
                 //var oTable=oTableSmart.getTable();
                 //console.log(oTable.getPlugins()[0].getSelectedIndices())
+                var sItems = []
                 var sItems = oTable.getPlugins()[0].getSelectedIndices();
                 //console.log(sItems) 
                 for (var i = 0; i < sItems.length; i++) {
@@ -150,8 +157,25 @@ sap.ui.define([
                     success: function (oData, oResponse) {
                         // Success
                         oTable.getModel().refresh(true);
-                        console.log(oResponse)
-                        MessageToast.show("Cambios guardados exitosamente");
+                        //console.log(oResponse)
+                        var errorObj1 = JSON.parse(oResponse.data.__batchResponses[0].response.body);
+                        //console.log(errorObj1)
+                        var log = errorObj1.error.innererror.errordetails;
+                        for (var i = 0; i < log.length; i++) {
+                            console.log(log[i].message)
+                            switch (log[i].severity) {
+                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.ERROR, "Error"); break;
+                                case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                default:
+                                    sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                            }
+                            //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
+
+                        }
+                        // MessageToast.show("Cambios guardados exitosamente");
+                        oTable.getModel().resetChanges()
                     },
                     error: function (oError) {
                         // Error

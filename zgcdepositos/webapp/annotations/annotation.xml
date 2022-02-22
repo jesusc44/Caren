@@ -72,7 +72,16 @@
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/IsActiveAnular">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
-            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/accion">
+            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/cuenta">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/fecha">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/deposito">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/accion">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType">
