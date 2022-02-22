@@ -1,0 +1,44 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:sf="sap.ui.comp.smartform"
+		xmlns:core="sap.ui.core"
+		xmlns:smartmultiedit="sap.ui.comp.smartmultiedit">
+	<Dialog
+			title="Depositos"
+			class="sapUiContentPadding"			
+			id="multipleEditingDialog"
+			contentWidth="30rem"
+			horizontalScrolling="false">
+		<content>
+        <Label text="Cuenta Contable" labelFor="cuentaInput"/>
+			<Input
+				id="cuentaInput"
+				type="Text"
+				placeholder="Ingrese la Cuenta"
+                required="true"
+			     valueHelpRequest="handleValueHelp"
+				 showValueHelp="true"> 
+			</Input>
+        <Label text="Fecha Deposito" labelFor="fechaInput"/>
+		<DatePicker
+			id="fechaInput"
+			placeholder="Ingrese Fecha"
+			change="handleChange"
+            required="true"
+			class="sapUiSmallMarginBottom"/>
+            <Label text="Número Deposito" labelFor="numInput"/>
+            <Input
+				id="numInput"
+				type="Text"
+				placeholder="Ingrese el número Deposito"
+                required="true"
+				showValueHelp="false"> 
+			</Input>
+			
+		</content>
+		<buttons>
+			<Button text="Guardar" press="onDialogSaveButton" type="Emphasized"/>
+			<Button text="Cancelar" press="onCloseDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

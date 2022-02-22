@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zgestion_cheques_srv/$metadata">
+        <edmx:Include Namespace="ZGESTION_CHEQUES_SRV" Alias="SAP" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="zgestion_cheques_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZGESTION_CHEQUES_SRV.ZAYUDA_ESTADOType">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Estado" />
+                            <PropertyValue Property="Value" Path="estado" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>estado</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_SRV.ZCDS_GESTION_CHEQUES_ODATAType/tabla">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_SRV.ZCDS_GESTION_CHEQUES_ODATAType/IsActiveStatus">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_SRV.ZCDS_GESTION_CHEQUES_ODATAType">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="bukrs" />
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Documento Venta" />
+                            <PropertyValue Property="Action" String="ZGESTION_CHEQUES_SRV.ZGESTION_CHEQUES_SRV_Entities/Status" />
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/ChangeSet" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="CME Origen" />
+                            <PropertyValue Property="Value" Path="umskz" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Descripción CME" />
+                            <PropertyValue Property="Value" Path="ltext" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Clase Doc." />
+                            <PropertyValue Property="Value" Path="blart" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Año" />
+                            <PropertyValue Property="Value" Path="gjahr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="No. Doc." />
+                            <PropertyValue Property="Value" Path="belnr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Compensación" />
+                            <PropertyValue Property="Value" Path="augdt" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Doc. Compensación" />
+                            <PropertyValue Property="Value" Path="augbl" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Fe. Contab" />
+                            <PropertyValue Property="Value" Path="budat" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Fecha Doc." />
+                            <PropertyValue Property="Value" Path="bldat" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Referencia" />
+                            <PropertyValue Property="Value" Path="xblnr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Asignación" />
+                            <PropertyValue Property="Value" Path="zuonr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Nro. Cheque" />
+                            <PropertyValue Property="Value" Path="xref1" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Banco Cheque" />
+                            <PropertyValue Property="Value" Path="xref2" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Cliente" />
+                            <PropertyValue Property="Value" Path="kunnr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Garantia Orsan" />
+                            <PropertyValue Property="Value" Path="xref3" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Vencimiento" />
+                            <PropertyValue Property="Value" Path="vencimiento" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Fecha Cheque" />
+                            <PropertyValue Property="Value" Path="zfbdt" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Monto" />
+                            <PropertyValue Property="Value" Path="wrbtr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Moneda" />
+                            <PropertyValue Property="Value" Path="waers" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Glosa" />
+                            <PropertyValue Property="Value" Path="sgtxt" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Condc.pago" />
+                            <PropertyValue Property="Value" Path="zterm" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Mes" />
+                            <PropertyValue Property="Value" Path="monat" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Clav. Contb" />
+                            <PropertyValue Property="Value" Path="bschl" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="CME Destino" />
+                            <PropertyValue Property="Value" Path="cme_destino" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Estado" />
+                            <PropertyValue Property="Value" Path="Estado" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Nombre Cliente" />
+                            <PropertyValue Property="Value" Path="name_org1" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Estado</PropertyPath>
+                        <PropertyPath>bukrs</PropertyPath>
+                        <PropertyPath>kunnr</PropertyPath>
+                        <PropertyPath>umskz</PropertyPath>
+                        <PropertyPath>belnr</PropertyPath>
+                        <PropertyPath>xref2</PropertyPath>
+                        <PropertyPath>xref3</PropertyPath>
+                        <PropertyPath>vencimiento</PropertyPath>
+                        <PropertyPath>zfbdt</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

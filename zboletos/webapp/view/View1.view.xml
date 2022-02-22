@@ -1,0 +1,63 @@
+<mvc:View
+    controllerName="zboletos.zboletos.controller.View1"
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:core="sap.ui.core" 
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
+    xmlns:smartTable="sap.ui.comp.smarttable" 
+    xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" 
+    height="100%"
+    width="100%"
+>
+    <Shell id="shell">
+        <App id="app" width="100%">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <VBox width="100%" 
+                        fitContainer="true">
+						<smartFilterBar:SmartFilterBar 
+                        id="smartFilterBar" 
+                        entitySet="ZVSD_BOLETOS_ODATA" 
+                        persistencyKey="SmartFilter_Explored" 
+                        class="sapUiSizeCompact">
+							<smartFilterBar:controlConfiguration>
+								
+							</smartFilterBar:controlConfiguration>
+							<smartFilterBar:layoutData>
+								<FlexItemData shrinkFactor="0"/>
+							</smartFilterBar:layoutData>
+						</smartFilterBar:SmartFilterBar>
+						<smartTable:SmartTable id="LineItemsSmartTable" 
+                        entitySet="ZVSD_BOLETOS_ODATA" 
+                        smartFilterId="smartFilterBar" 
+                        tableType="Table" 
+                        useExportToExcel="true" 
+                        beforeExport="onBeforeExport" 
+                        useVariantManagement="true" 
+                        useTablePersonalisation="true" 
+                        header="Line Items" 
+                        showRowCount="true" 
+                        persistencyKey="SmartTableAnalytical_Explored" 
+                        enableAutoBinding="true" 
+                        class="sapUiResponsiveContentPadding" 
+                        app:useSmartToggle="true" 
+                        app:useSmartField="true">
+							<smartTable:customToolbar>
+								<OverflowToolbar design="Transparent">
+									<ToolbarSpacer/>
+									<OverflowToolbarButton id="editButton" icon="sap-icon://edit" tooltip="Editar" text="Editar" press="onEdit"/>
+									<OverflowToolbarButton id="saveButton" icon="sap-icon://save" text="Save" type="Transparent" press="onSave" visible="false"/>
+									<Button id="cancelButton" text="Cancelar" type="Transparent" press="onCancel" visible="false"/>
+								</OverflowToolbar>
+							</smartTable:customToolbar>
+							<smartTable:layoutData>
+								<FlexItemData growFactor="1" baseSize="0%"/>
+							</smartTable:layoutData>
+						</smartTable:SmartTable>
+					</VBox>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

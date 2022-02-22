@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/znota_venta_srv/$metadata">
+        <edmx:Include Namespace="ZNOTA_VENTA_SRV" Alias="SAP" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="znota_venta_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType/objnr">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType/gltrp">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType/taxnum">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType/IsActiveSend">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="aufnr" />
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Enviar" />
+                            <PropertyValue Property="Action" String="ZNOTA_VENTA_SRV.ZNOTA_VENTA_SRV_Entities/Send" />
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/ChangeSet" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="N° Objeto" />
+                            <PropertyValue Property="Value" Path="objnr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Sucursal" />
+                            <PropertyValue Property="Value" Path="werks" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Clase Orden" />
+                            <PropertyValue Property="Value" Path="auart" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Fecha Inicio" />
+                            <PropertyValue Property="Value" Path="gstrp" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="gltrp" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Status Orden" />
+                            <PropertyValue Property="Value" Path="stat" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="N° Patente" />
+                            <PropertyValue Property="Value" Path="license_num" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="N° Cliente" />
+                            <PropertyValue Property="Value" Path="kunum" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Nombre Cliente" />
+                            <PropertyValue Property="Value" Path="name1_text" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="N° Orden" />
+                            <PropertyValue Property="Value" Path="taxnum" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Categoría Cliente" />
+                            <PropertyValue Property="Value" Path="kukla" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Total Ingresos" />
+                            <PropertyValue Property="Value" Path="total_ingresos" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Total Iva" />
+                            <PropertyValue Property="Value" Path="total_iva" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Total Descuento" />
+                            <PropertyValue Property="Value" Path="total_desc" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Total Descuento" />
+                            <PropertyValue Property="Value" Path="total_final" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Control de Calidad" />
+                            <PropertyValue Property="Value" Path="filename" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Usuario" />
+                            <PropertyValue Property="Value" Path="uname" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Fecha Envio" />
+                            <PropertyValue Property="Value" Path="datum" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Usuario Creador" />
+                            <PropertyValue Property="Value" Path="ernam" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Hora Envio" />
+                            <PropertyValue Property="Value" Path="uzeit" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>aufnr</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZNOTA_VENTA_SRV.ZCDS_NV_DET_ODATAType/auart">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZNOTA_VENTA_SRV.ZCDS_NV_DET_ODATAType">
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Posición" />
+                        <PropertyValue Property="TypeNamePlural" String="Posiciones" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="N° Orden" />
+                            <PropertyValue Property="Value" Path="aufnr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Pedido Venta" />
+                            <PropertyValue Property="Value" Path="vbeln" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Posición" />
+                            <PropertyValue Property="Value" Path="posnr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Clase Doc." />
+                            <PropertyValue Property="Value" Path="auart" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Sucursal" />
+                            <PropertyValue Property="Value" Path="bwkey" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material" />
+                            <PropertyValue Property="Value" Path="matnr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Denominación del Material" />
+                            <PropertyValue Property="Value" Path="arktx" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Cantidad" />
+                            <PropertyValue Property="Value" Path="kwmeng" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Unidad de Medida Venta" />
+                            <PropertyValue Property="Value" Path="vrkme" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Centro de Beneficio" />
+                            <PropertyValue Property="Value" Path="prctr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Precio neto" />
+                            <PropertyValue Property="Value" Path="netpr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Valor neto" />
+                            <PropertyValue Property="Value" Path="netwr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Tipo Material" />
+                            <PropertyValue Property="Value" Path="mtart" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Costo Unitario" />
+                            <PropertyValue Property="Value" Path="verpr" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Iva" />
+                            <PropertyValue Property="Value" Path="iva" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Descuento" />
+                            <PropertyValue Property="Value" Path="descuento" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

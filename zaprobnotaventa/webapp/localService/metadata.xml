@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZPED_BLOQ_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZPEDIDOS_BLOQUEADOS_ODATAType" sap:label="Odata Pedidos Bloqueados SD" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="vbeln" />
+                    <PropertyRef Name="fuente" />
+                </Key>
+                <Property Name="vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento Venta" sap:quickinfo="Documento de ventas" sap:creatable="false" sap:updatable="false" />
+                <Property Name="fuente" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Fuente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="erdat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Creado el" sap:quickinfo="Fecha de creación del registro" sap:creatable="false" sap:updatable="false" />
+                <Property Name="ernam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Creado por" sap:quickinfo="Nombre del responsable que ha añadido el objeto" sap:creatable="false" sap:updatable="false" />
+                <Property Name="vbtyp" Type="Edm.String" MaxLength="4" sap:label="Tipo documento" sap:quickinfo="Tipo de documento comercial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="netwr" Type="Edm.Decimal" Precision="13" Scale="0" sap:label="Valor neto" sap:creatable="false" sap:updatable="false" />
+                <Property Name="waerk" Type="Edm.String" MaxLength="5" sap:label="Moneda" sap:quickinfo="Moneda de documento comercial" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code" />
+                <Property Name="kunnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente" sap:quickinfo="Solicitante" sap:creatable="false" sap:updatable="false" />
+                <Property Name="nombre_cliente" Type="Edm.String" MaxLength="163" sap:label="Descripción del cliente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="bstnk" Type="Edm.String" MaxLength="20" sap:label="Referencia del pedido" sap:quickinfo="Referencia de cliente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="vkorg" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Organiz.ventas" sap:quickinfo="Organización de ventas" sap:creatable="false" sap:updatable="false" />
+                <Property Name="vtweg" Type="Edm.String" MaxLength="23" sap:label="Canal" sap:creatable="false" sap:updatable="false" />
+                <Property Name="auart" Type="Edm.String" MaxLength="25" sap:label="Clase de pedido" sap:creatable="false" sap:updatable="false" />
+                <Property Name="last_changed_by_user" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Modificado por" sap:quickinfo="Usuario que modificó el documento comercial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="cmgst" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Status de la verificación de crédito SAP Credit Management" sap:quickinfo="Status total de las verificaciones de crédito" sap:creatable="false" sap:updatable="false" />
+                <Property Name="werks" Type="Edm.String" MaxLength="4" sap:label="Sucursal" sap:creatable="false" sap:updatable="false" />
+                <Property Name="taxnum" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="RUT" sap:quickinfo="NIF para interlocutor comercial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="risk_class" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clase de Riesgo" sap:quickinfo="Clase de riesgo" sap:creatable="false" sap:updatable="false" />
+                <Property Name="criticality" Type="Edm.Byte" />
+                <Property Name="descripcion" Type="Edm.String" MaxLength="16" sap:label="Estatus Pedido" sap:creatable="false" sap:updatable="false" />
+                <Property Name="vendedor" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendedor" sap:quickinfo="Número de interlocutor comercial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="name1" Type="Edm.String" MaxLength="30" sap:label="Nombre Sucursal" sap:quickinfo="Nombre" sap:creatable="false" sap:updatable="false" />
+                <Property Name="tipo_documento" Type="Edm.String" MaxLength="60" sap:label="Desc. Tipo Documento" sap:quickinfo="Texto breve p.valores fijos" sap:creatable="false" sap:updatable="false" />
+                <Property Name="criticalrisk" Type="Edm.Byte" />
+                <Property Name="risk_class_txt" Type="Edm.String" MaxLength="40" sap:label="Desc. Clase de Riesgo" sap:quickinfo="Denominación de la clase de riesgo" sap:creatable="false" sap:updatable="false" />
+                <Property Name="motivo" Type="Edm.String" MaxLength="40" sap:label="Motivo Bloqueo" sap:quickinfo="SAP Credit Management: Descripción para bloqueo" sap:creatable="false" sap:updatable="false" />
+                <Property Name="nombre_vendedor" Type="Edm.String" MaxLength="163" sap:label="Nombre Vendedor" sap:creatable="false" sap:updatable="false" />
+                <Property Name="zterm" Type="Edm.String" MaxLength="55" sap:label="Medio Pago" sap:creatable="false" sap:updatable="false" />
+                <Property Name="vkgrp" Type="Edm.String" MaxLength="24" sap:label="Grupo Vendedor" sap:creatable="false" sap:updatable="false" />
+                <Property Name="smtp_addr" Type="Edm.String" MaxLength="241" sap:label="Correo" sap:quickinfo="Dirección de correo electrónico" sap:creatable="false" sap:updatable="false" />
+                <Property Name="telephone" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Teléfono" sap:quickinfo="Número teléfono: Prefijo+número" sap:creatable="false" sap:updatable="false" />
+                <Property Name="erzet" Type="Edm.Time" Precision="0" sap:label="Hora" sap:quickinfo="Hora de entrada" sap:creatable="false" sap:updatable="false" />
+                <Property Name="credit_limit" Type="Edm.Decimal" Precision="16" Scale="3" sap:label="Límite Crédito" sap:quickinfo="Límite de crédito" sap:creatable="false" sap:updatable="false" />
+                <Property Name="akont" Type="Edm.String" MaxLength="61" sap:label="Cuenta Relacionada" sap:creatable="false" sap:updatable="false" />
+                <Property Name="fecha_mod" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha Modificación" sap:quickinfo="Fecha última modificación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="hora_mod" Type="Edm.Time" Precision="0" sap:label="Hora Modificación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="iva" Type="Edm.Decimal" Precision="13" Scale="0" sap:label="Iva" sap:creatable="false" sap:updatable="false" />
+                <Property Name="valor_total" Type="Edm.Decimal" Precision="13" Scale="0" sap:label="Valor Total" sap:creatable="false" sap:updatable="false" />
+                <Property Name="IsActiveLiberar" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="VERDADERO" sap:quickinfo="Elem.datos p.dominio BOOLE: VERDADERO (=&quot;X&quot;) y FALSO (=&quot; &quot;)" />
+                <Property Name="IsActiveRechazar" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="VERDADERO" sap:quickinfo="Elem.datos p.dominio BOOLE: VERDADERO (=&quot;X&quot;) y FALSO (=&quot; &quot;)" />
+            </EntityType>
+            <EntityContainer Name="ZPED_BLOQ_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZPEDIDOS_BLOQUEADOS_ODATA" EntityType="ZPED_BLOQ_SRV.ZPEDIDOS_BLOQUEADOS_ODATAType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1" />
+                <FunctionImport Name="Liberar" ReturnType="ZPED_BLOQ_SRV.ZPEDIDOS_BLOQUEADOS_ODATAType" EntitySet="ZPEDIDOS_BLOQUEADOS_ODATA" m:HttpMethod="PUT" sap:action-for="ZPED_BLOQ_SRV.ZPEDIDOS_BLOQUEADOS_ODATAType" sap:applicable-path="IsActiveLiberar">
+                    <Parameter Name="vbeln" Type="Edm.String" Mode="In" />
+                    <Parameter Name="fuente" Type="Edm.String" Mode="In" />
+                </FunctionImport>
+                <FunctionImport Name="Rechazar" ReturnType="ZPED_BLOQ_SRV.ZPEDIDOS_BLOQUEADOS_ODATAType" EntitySet="ZPEDIDOS_BLOQUEADOS_ODATA" m:HttpMethod="PUT" sap:action-for="ZPED_BLOQ_SRV.ZPEDIDOS_BLOQUEADOS_ODATAType" sap:applicable-path="IsActiveRechazar">
+                    <Parameter Name="vbeln" Type="Edm.String" Mode="In" />
+                    <Parameter Name="fuente" Type="Edm.String" Mode="In" />
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="ZPED_BLOQ_SRV.ZPED_BLOQ_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true" />
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZPED_BLOQ_SRV.ZPEDIDOS_BLOQUEADOS_ODATAType/smtp_addr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory" />
+            </Annotations>
+            <Annotations Target="ZPED_BLOQ_SRV.ZPEDIDOS_BLOQUEADOS_ODATAType/telephone" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory" />
+            </Annotations>
+            <Annotations Target="ZPED_BLOQ_SRV.ZPEDIDOS_BLOQUEADOS_ODATAType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>fuente</PropertyPath>
+                        <PropertyPath>vbeln</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/sap/ZPED_BLOQ_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+            <atom:link rel="latest-version" href="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/sap/ZPED_BLOQ_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

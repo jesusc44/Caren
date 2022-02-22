@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGESTION_CHEQUES_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZAYUDA_CME_DESTINOType" sap:label="Ayuda de busqueda CME Destino" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="zumskz_des" />
+                </Key>
+                <Property Name="zumskz_des" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:text="zktext_des" sap:label="ZKTEXT_DES" sap:quickinfo="ZUMSKZ_DES" />
+                <Property Name="zktext_des" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Descripción" />
+            </EntityType>
+            <EntityType Name="ZAYUDA_CME_ORIGENType" sap:label="CME Origen" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="z_zumskz_ori" />
+                </Key>
+                <Property Name="z_zumskz_ori" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:text="z_zktext_ori" sap:label="CME Origen" />
+                <Property Name="z_zktext_ori" Type="Edm.String" MaxLength="32" />
+            </EntityType>
+            <EntityType Name="ZAYUDA_ESTADOType" sap:label="Estado" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="estado" />
+                </Key>
+                <Property Name="estado" Type="Edm.String" Nullable="false" MaxLength="20" sap:text="estado" sap:label="Estado" sap:creatable="false" sap:updatable="false" />
+            </EntityType>
+            <EntityType Name="ZCDS_GESTION_CHEQUES_ODATAType" sap:label="Odata Gestión de Cheques" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="bukrs" />
+                    <PropertyRef Name="belnr" />
+                    <PropertyRef Name="gjahr" />
+                    <PropertyRef Name="xref1" />
+                    <PropertyRef Name="xref3" />
+                    <PropertyRef Name="umskz" />
+                    <PropertyRef Name="bschl" />
+                </Key>
+                <Property Name="bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Sociedad" sap:creatable="false" sap:updatable="false" />
+                <Property Name="belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="No. Doc." sap:quickinfo="Número de un documento contable" sap:creatable="false" sap:updatable="false" />
+                <Property Name="gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Año" sap:quickinfo="Ejercicio" sap:creatable="false" sap:updatable="false" />
+                <Property Name="xref1" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Nro. Cheque" sap:quickinfo="Clave de referencia de interlocutor comercial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="xref3" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Garantia Orsan" sap:quickinfo="Clave de referencia para la posición de documento" sap:creatable="false" sap:updatable="false" />
+                <Property Name="umskz" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="CME Origen" sap:quickinfo="Indicador de operación en cuenta de mayor especial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="bschl" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Clav. Contb" sap:quickinfo="Clave de contabilización" sap:creatable="false" sap:updatable="false" />
+                <Property Name="kunnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente" sap:quickinfo="Número de cliente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="name_org1" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Nombre Cliente" sap:quickinfo="Campo ayuda p.búsqueda 1 (nombre 1/apellido)" sap:creatable="false" sap:updatable="false" />
+                <Property Name="ltext" Type="Edm.String" MaxLength="30" sap:label="Descripción CME" sap:quickinfo="Descripción detallada del indicador de cta.mayor especial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="blart" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Clase Doc." sap:quickinfo="Clase de documento" sap:creatable="false" sap:updatable="false" />
+                <Property Name="augdt" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Compensación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="augbl" Type="Edm.String" MaxLength="10" sap:label="Doc. Compensación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="budat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fe. Contab" sap:quickinfo="Fecha de contabilización en el documento" sap:creatable="false" sap:updatable="false" />
+                <Property Name="bldat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha Doc." sap:quickinfo="Fecha de documento en documento" sap:creatable="false" sap:updatable="false" />
+                <Property Name="xblnr" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Referencia" sap:quickinfo="Número de documento de referencia" sap:creatable="false" sap:updatable="false" />
+                <Property Name="zuonr" Type="Edm.String" MaxLength="18" sap:label="Asignación" sap:quickinfo="Número de asignación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="xref2" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Banco Cheque" sap:quickinfo="Clave de referencia de interlocutor comercial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="zfbdt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha Cheque" sap:quickinfo="Fecha base para cálculo del vencimiento" sap:creatable="false" sap:updatable="false" />
+                <Property Name="vencimiento" Type="Edm.Int32" sap:label="Vencimiento" sap:creatable="false" sap:updatable="false" />
+                <Property Name="wrbtr" Type="Edm.Decimal" Precision="13" Scale="0" sap:label="Monto" sap:creatable="false" sap:updatable="false" />
+                <Property Name="waers" Type="Edm.String" MaxLength="5" sap:label="Moneda" sap:quickinfo="Clave de moneda" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code" />
+                <Property Name="sgtxt" Type="Edm.String" MaxLength="50" sap:label="Glosa" sap:quickinfo="Texto posición" sap:creatable="false" sap:updatable="false" />
+                <Property Name="zterm" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Condc.pago" sap:quickinfo="Clave de condiciones de pago" sap:creatable="false" sap:updatable="false" />
+                <Property Name="monat" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Mes" sap:quickinfo="Mes contable" sap:creatable="false" sap:updatable="false" />
+                <Property Name="Estado" Type="Edm.String" MaxLength="20" sap:label="Estado" sap:creatable="false" sap:updatable="false" />
+                <Property Name="cme_destino" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="CME Destino" sap:quickinfo="Indicador de operación en cuenta de mayor especial" />
+                <Property Name="tabla" Type="Edm.String" MaxLength="4" />
+                <Property Name="IsActiveStatus" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="VERDADERO" sap:quickinfo="Elem.datos p.dominio BOOLE: VERDADERO (=&quot;X&quot;) y FALSO (=&quot; &quot;)" />
+                <Property Name="accion" Type="Edm.String" MaxLength="1" />
+                <NavigationProperty Name="to_estado" Relationship="ZGESTION_CHEQUES_SRV.assoc_7E86208F73320577AC9C4AC314E9E38B" FromRole="FromRole_assoc_7E86208F73320577AC9C4AC314E9E38B" ToRole="ToRole_assoc_7E86208F73320577AC9C4AC314E9E38B" />
+                <NavigationProperty Name="to_origen" Relationship="ZGESTION_CHEQUES_SRV.assoc_868E9553CF80697E66B7D1059F9CAA20" FromRole="FromRole_assoc_868E9553CF80697E66B7D1059F9CAA20" ToRole="ToRole_assoc_868E9553CF80697E66B7D1059F9CAA20" />
+            </EntityType>
+            <Association Name="assoc_868E9553CF80697E66B7D1059F9CAA20" sap:content-version="1">
+                <End Type="ZGESTION_CHEQUES_SRV.ZCDS_GESTION_CHEQUES_ODATAType" Multiplicity="1" Role="FromRole_assoc_868E9553CF80697E66B7D1059F9CAA20" />
+                <End Type="ZGESTION_CHEQUES_SRV.ZAYUDA_CME_ORIGENType" Multiplicity="*" Role="ToRole_assoc_868E9553CF80697E66B7D1059F9CAA20" />
+            </Association>
+            <Association Name="assoc_7E86208F73320577AC9C4AC314E9E38B" sap:content-version="1">
+                <End Type="ZGESTION_CHEQUES_SRV.ZCDS_GESTION_CHEQUES_ODATAType" Multiplicity="1" Role="FromRole_assoc_7E86208F73320577AC9C4AC314E9E38B" />
+                <End Type="ZGESTION_CHEQUES_SRV.ZAYUDA_ESTADOType" Multiplicity="*" Role="ToRole_assoc_7E86208F73320577AC9C4AC314E9E38B" />
+            </Association>
+            <EntityContainer Name="ZGESTION_CHEQUES_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZAYUDA_CME_DESTINO" EntityType="ZGESTION_CHEQUES_SRV.ZAYUDA_CME_DESTINOType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:semantics="fixed-values" />
+                <EntitySet Name="ZAYUDA_CME_ORIGEN" EntityType="ZGESTION_CHEQUES_SRV.ZAYUDA_CME_ORIGENType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+                <EntitySet Name="ZAYUDA_ESTADO" EntityType="ZGESTION_CHEQUES_SRV.ZAYUDA_ESTADOType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" />
+                <EntitySet Name="ZCDS_GESTION_CHEQUES_ODATA" EntityType="ZGESTION_CHEQUES_SRV.ZCDS_GESTION_CHEQUES_ODATAType" sap:creatable="false" sap:deletable="false" sap:content-version="1" />
+                <AssociationSet Name="assoc_7E86208F73320577AC9C4AC314E9E38B" Association="ZGESTION_CHEQUES_SRV.assoc_7E86208F73320577AC9C4AC314E9E38B" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZCDS_GESTION_CHEQUES_ODATA" Role="FromRole_assoc_7E86208F73320577AC9C4AC314E9E38B" />
+                    <End EntitySet="ZAYUDA_ESTADO" Role="ToRole_assoc_7E86208F73320577AC9C4AC314E9E38B" />
+                </AssociationSet>
+                <AssociationSet Name="assoc_868E9553CF80697E66B7D1059F9CAA20" Association="ZGESTION_CHEQUES_SRV.assoc_868E9553CF80697E66B7D1059F9CAA20" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZCDS_GESTION_CHEQUES_ODATA" Role="FromRole_assoc_868E9553CF80697E66B7D1059F9CAA20" />
+                    <End EntitySet="ZAYUDA_CME_ORIGEN" Role="ToRole_assoc_868E9553CF80697E66B7D1059F9CAA20" />
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZGESTION_CHEQUES_SRV.ZGESTION_CHEQUES_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true" />
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_SRV.ZCDS_GESTION_CHEQUES_ODATAType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>bschl</PropertyPath>
+                        <PropertyPath>umskz</PropertyPath>
+                        <PropertyPath>xref3</PropertyPath>
+                        <PropertyPath>xref1</PropertyPath>
+                        <PropertyPath>gjahr</PropertyPath>
+                        <PropertyPath>belnr</PropertyPath>
+                        <PropertyPath>bukrs</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/sap/ZGESTION_CHEQUES_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+            <atom:link rel="latest-version" href="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/sap/ZGESTION_CHEQUES_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

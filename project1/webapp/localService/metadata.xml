@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZNOTA_VENTA_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZCDS_NOTA_VENTA_ODATAType" sap:label="Envío Nota de Venta Flotacentro Odata" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="aufnr"/>
+                </Key>
+                <Property Name="aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Orden" sap:quickinfo="Número de orden" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="objnr" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Nº objeto" sap:quickinfo="Número de objeto" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="werks" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="auart" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Clase de orden" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="gstrp" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha inicio extrema" sap:quickinfo="Fecha de inicio extrema" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="gltrp" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha fin extrema" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="stat" Type="Edm.String" MaxLength="5" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="license_num" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Matrícula vehículo" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="kunum" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente" sap:quickinfo="Número de cliente" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="name1_text" Type="Edm.String" MaxLength="80" sap:label="Nombre completo" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="taxnum" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="N.I.F." sap:quickinfo="NIF para interlocutor comercial" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="kukla" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Clasific.clientes" sap:quickinfo="Clasificación de clientes" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="total_ingresos" Type="Edm.Decimal" Precision="16" Scale="3" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="filename" Type="Edm.String" MaxLength="255" sap:label="Fichero" sap:quickinfo="Nombre de fichero de un anexo" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsActiveSend" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="VERDADERO" sap:quickinfo="Elem.datos p.dominio BOOLE: VERDADERO (=&quot;X&quot;) y FALSO (=&quot; &quot;)"/>
+                <NavigationProperty Name="to_detalle" Relationship="ZNOTA_VENTA_SRV.assoc_6855F675C3C00A1605EDBFBE6A66D8DA" FromRole="FromRole_assoc_6855F675C3C00A1605EDBFBE6A66D8DA" ToRole="ToRole_assoc_6855F675C3C00A1605EDBFBE6A66D8DA"/>
+            </EntityType>
+            <EntityType Name="ZCDS_NV_DET_ODATAType" sap:label="Odata detalle nota venta" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="aufnr"/>
+                    <PropertyRef Name="vbeln"/>
+                    <PropertyRef Name="posnr"/>
+                </Key>
+                <Property Name="aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Orden" sap:quickinfo="Número de orden" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="vbeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento de ventas" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="posnr" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Posición" sap:quickinfo="Posición documento ventas" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="auart" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Clase doc.ventas" sap:quickinfo="Clase de documento de ventas" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="matnr" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Número de material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="arktx" Type="Edm.String" MaxLength="40" sap:label="Denomin.posición" sap:quickinfo="Texto breve posición de pedido de cliente" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="kwmeng" Type="Edm.Decimal" Precision="15" Scale="3" sap:label="Cantidad de pedido" sap:quickinfo="Cantidad de pedido acumulada (en unidades de venta)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="vrkme" Type="Edm.String" MaxLength="3" sap:label="Un.medida venta" sap:quickinfo="Unidad de medida de venta" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="prctr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Centro de beneficio" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="netpr" Type="Edm.Decimal" Precision="12" Scale="3" sap:label="Precio neto" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="netwr" Type="Edm.Decimal" Precision="16" Scale="3" sap:label="Valor neto" sap:quickinfo="Valor neto de posición de pedido en moneda de documento" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <Association Name="assoc_6855F675C3C00A1605EDBFBE6A66D8DA" sap:content-version="1">
+                <End Type="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType" Multiplicity="1" Role="FromRole_assoc_6855F675C3C00A1605EDBFBE6A66D8DA">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="ZNOTA_VENTA_SRV.ZCDS_NV_DET_ODATAType" Multiplicity="*" Role="ToRole_assoc_6855F675C3C00A1605EDBFBE6A66D8DA"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_6855F675C3C00A1605EDBFBE6A66D8DA">
+                        <PropertyRef Name="aufnr"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_6855F675C3C00A1605EDBFBE6A66D8DA">
+                        <PropertyRef Name="aufnr"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZNOTA_VENTA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZCDS_NOTA_VENTA_ODATA" EntityType="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZCDS_NV_DET_ODATA" EntityType="ZNOTA_VENTA_SRV.ZCDS_NV_DET_ODATAType" sap:creatable="false" sap:updatable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_6855F675C3C00A1605EDBFBE6A66D8DA" Association="ZNOTA_VENTA_SRV.assoc_6855F675C3C00A1605EDBFBE6A66D8DA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZCDS_NOTA_VENTA_ODATA" Role="FromRole_assoc_6855F675C3C00A1605EDBFBE6A66D8DA"/>
+                    <End EntitySet="ZCDS_NV_DET_ODATA" Role="ToRole_assoc_6855F675C3C00A1605EDBFBE6A66D8DA"/>
+                </AssociationSet>
+                <FunctionImport Name="Send" ReturnType="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType" EntitySet="ZCDS_NOTA_VENTA_ODATA" m:HttpMethod="PUT" sap:action-for="ZNOTA_VENTA_SRV.ZCDS_NOTA_VENTA_ODATAType" sap:applicable-path="IsActiveSend">
+                    <Parameter Name="aufnr" Type="Edm.String" Mode="In"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="ZNOTA_VENTA_SRV.ZNOTA_VENTA_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZNOTA_VENTA_SRV.ZCDS_NV_DET_ODATAType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>posnr</PropertyPath>
+                        <PropertyPath>vbeln</PropertyPath>
+                        <PropertyPath>aufnr</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/sap/ZNOTA_VENTA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vh.vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/sap/ZNOTA_VENTA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

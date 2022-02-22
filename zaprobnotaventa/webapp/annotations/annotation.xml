@@ -1,0 +1,184 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZPED_BLOQ_SRV/$metadata">
+        <edmx:Include Namespace="ZPED_BLOQ_SRV" Alias="SAP" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zaprobnotaventa">
+            <Annotations Target="SAP.ZPEDIDOS_BLOQUEADOS_ODATAType">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Action" String="ZPED_BLOQ_SRV.ZPED_BLOQ_SRV_Entities/Liberar" />
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/ChangeSet" />
+                            <PropertyValue Property="Label" String="Liberar" />
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Action" String="ZPED_BLOQ_SRV.ZPED_BLOQ_SRV_Entities/Rechazar" />
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/ChangeSet" />
+                            <PropertyValue Property="Label" String="Rechazar" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="descripcion" />
+                            <PropertyValue Property="Label" String="Estatus Pedido" />
+                             <PropertyValue Property="Criticality" Path="criticality"/> 
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vbeln" />
+                            <PropertyValue Property="Label" String="Documento venta" />
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="werks" />
+                            <PropertyValue Property="Label" String="Sucursal" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="name1" />
+                            <PropertyValue Property="Label" String="Nombre Sucursal" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ernam" />
+                            <PropertyValue Property="Label" String="Creado por" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="erdat" />
+                            <PropertyValue Property="Label" String="Creado el" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="erzet" />
+                            <PropertyValue Property="Label" String="Hora Creado" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vbtyp" />
+                            <PropertyValue Property="Label" String="Tipo documento" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="tipo_documento" />
+                            <PropertyValue Property="Label" String="Desc.Tipo documento" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="netwr" />
+                            <PropertyValue Property="Label" String="Valor neto" />
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="iva" />
+                            <PropertyValue Property="Label" String="IVA" />
+                        </Record>
+                          <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="valor_total" />
+                            <PropertyValue Property="Label" String="Valor Total" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="waerk" />
+                            <PropertyValue Property="Label" String="Moneda" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="kunnr" />
+                            <PropertyValue Property="Label" String="Ciente" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="nombre_cliente" />
+                            <PropertyValue Property="Label" String="Descripción del cliente" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="taxnum" />
+                            <PropertyValue Property="Label" String="Rut del cliente" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="smtp_addr" />
+                            <PropertyValue Property="Label" String="Correo del cliente" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="telephone" />
+                            <PropertyValue Property="Label" String="Teléfono del cliente" />
+                        </Record>
+
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="risk_class" />
+                            <PropertyValue Property="Label" String="Clase de Riesgo" />
+                             <PropertyValue Property="Criticality" Path="criticalrisk"/> 
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="risk_class_txt" />
+                            <PropertyValue Property="Label" String="Desc. Clase de Riesgo" />
+                             <PropertyValue Property="Criticality" Path="criticalrisk"/> 
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="motivo" />
+                            <PropertyValue Property="Label" String="Motivo Bloqueo" />
+                             <PropertyValue Property="Criticality" Path="criticalrisk"/> 
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="bstnk" />
+                            <PropertyValue Property="Label" String="Referencia del pedido" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vkorg" />
+                            <PropertyValue Property="Label" String="Organiz.ventas" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vtweg" />
+                            <PropertyValue Property="Label" String="Canal" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="auart" />
+                            <PropertyValue Property="Label" String="Clase de pedido" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="last_changed_by_user" />
+                            <PropertyValue Property="Label" String="Modificado por" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="cmgst" />
+                            <PropertyValue Property="Label" String="Status de la verificación de crédito SAP Credit Management" />
+                        </Record>
+                       
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vendedor" />
+                            <PropertyValue Property="Label" String="Vendedor" />
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="nombre_vendedor" />
+                            <PropertyValue Property="Label" String="Nombre Vendedor" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="fuente" />
+                            <PropertyValue Property="Label" String="Fuente" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="zterm" />
+                            <PropertyValue Property="Label" String="Medio Pago" />
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vkgrp" />
+                            <PropertyValue Property="Label" String="Grupo Vendedor" />
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="credit_limit" />
+                            <PropertyValue Property="Label" String="Límite Crédito" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="akont" />
+                            <PropertyValue Property="Label" String="Cuenta Relacionada" />
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="fecha_mod" />
+                            <PropertyValue Property="Label" String="Fecha Modificación" />
+                        </Record>
+                          <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="hora_mod" />
+                            <PropertyValue Property="Label" String="Hora Modificación" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

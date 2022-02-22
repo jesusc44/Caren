@@ -1,0 +1,388 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZCBP_DATOS_ODATA_CDS/$metadata">
+        <edmx:Include Namespace="ZCBP_DATOS_ODATA_CDS" Alias="SAP" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zcrubp">
+            <Annotations Target="SAP.ZCBP_Datos_ODATAType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Datos Generales" />
+                            <PropertyValue Property="ID" String="IDzcrubp" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Dimensions" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Direcciones" />
+                            <PropertyValue Property="ID" String="direcciones" />
+                            <PropertyValue Property="Target" AnnotationPath="to_direc_adi/@UI.LineItem" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="crdat" />
+                            <PropertyValue Property="Label" String="Fecha Creación" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="taxnum" />
+                            <PropertyValue Property="Label" String="RUT" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="partner" />
+                            <PropertyValue Property="Label" String="Nro BP" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="mc_name2" />
+                            <PropertyValue Property="Label" String="Razón Social 2/Nombre" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="name_org2" />
+                            <PropertyValue Property="Label" String="Segundo Nombre" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="mc_name1" />
+                            <PropertyValue Property="Label" String="Razón Social/Apellido" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="name_org4" />
+                            <PropertyValue Property="Label" String="Apellido Materno" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="street" />
+                            <PropertyValue Property="Label" String="Calle" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="house_num1" />
+                            <PropertyValue Property="Label" String="Número" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="country" />
+                            <PropertyValue Property="Label" String="País" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="region" />
+                            <PropertyValue Property="Label" String="Región" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="city1" />
+                            <PropertyValue Property="Label" String="Ciudad" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="city2" />
+                            <PropertyValue Property="Label" String="Distrito" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="telephone" />
+                            <PropertyValue Property="Label" String="Teléfono" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="smtp_addr" />
+                            <PropertyValue Property="Label" String="Correo Electronico" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="kukla" />
+                            <PropertyValue Property="Label" String="Categoria de Clientes" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vbeln" />
+                            <PropertyValue Property="Label" String="Número de Contrato" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="bnddt" />
+                            <PropertyValue Property="Label" String="Fecha Vencimiento Contrato" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="aufnr" />
+                            <PropertyValue Property="Label" String="Última Orden Creada en Flotacentro" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="gstrp" />
+                            <PropertyValue Property="Label" String="Fecha Última Orden" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vtext" />
+                            <PropertyValue Property="Label" String="Condición de Pago" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="credit_limit" />
+                            <PropertyValue Property="Label" String="Línea de Crédito Otorgada" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="crusr" />
+                            <PropertyValue Property="Label" String="Creado Por" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="risk_class_txt" />
+                            <PropertyValue Property="Label" String="Riesgo" />
+                            <PropertyValue Property="Criticality" Path="criticalrisk" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="morosidad" />
+                            <PropertyValue Property="Label" String="Morosidad" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="zfbdt" />
+                            <PropertyValue Property="Label" String="Próx. Fecha Pago" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Dimensions">
+                    <Record>
+                        <PropertyValue Property="Label" String="Dimensions" />
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="title_medi" />
+                                    <PropertyValue Property="Label" String="Tratamiento" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="mc_name2" />
+                                    <PropertyValue Property="Label" String="Razón Social 2/Nombre" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="name_org2" />
+                                    <PropertyValue Property="Label" String="Segundo Nombre" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="mc_name1" />
+                                    <PropertyValue Property="Label" String="Razón Social/Apellido" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="name_org4" />
+                                    <PropertyValue Property="Label" String="Apellido Materno" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="taxnum" />
+                                    <PropertyValue Property="Label" String="RUT" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="smtp_addr" />
+                                    <PropertyValue Property="Label" String="Correo Electronico" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="street" />
+                                    <PropertyValue Property="Label" String="Calle" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="house_num1" />
+                                    <PropertyValue Property="Label" String="Número" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="country" />
+                                    <PropertyValue Property="Label" String="Clave País" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="region" />
+                                    <PropertyValue Property="Label" String="Región" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="city2" />
+                                    <PropertyValue Property="Label" String="Distrito" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="city1" />
+                                    <PropertyValue Property="Label" String="Ciudad" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="telephone" />
+                                    <PropertyValue Property="Label" String="Teléfono" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="movil_phone" />
+                                    <PropertyValue Property="Label" String="Teléfono Celular" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="limite" />
+                                    <PropertyValue Property="Label" String="Comprometido" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZIMM_Vista_Direc_Adi_ODATAType">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Direcciones" />
+                            <PropertyValue Property="ID" String="IDDireccion" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Dimensions" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CitynameAdd" />
+                            <PropertyValue Property="Label" String="Ciudad" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="District" />
+                            <PropertyValue Property="Label" String="Distrito" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="StreetnameAdd" />
+                            <PropertyValue Property="Label" String="Calle" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="HousenumberAdd" />
+                            <PropertyValue Property="Label" String="Número" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Country" />
+                            <PropertyValue Property="Label" String="Clave País" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="RegionAdd" />
+                            <PropertyValue Property="Label" String="Región" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Phonenumber" />
+                            <PropertyValue Property="Label" String="Teléfono" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Mobilephonenumber" />
+                            <PropertyValue Property="Label" String="Teléfono Celular" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Emailaddress" />
+                            <PropertyValue Property="Label" String="Correo Electronico" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="Dimensions">
+                    <Record>
+                        <PropertyValue Property="Label" String="Direcciones" />
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CitynameAdd" />
+                                    <PropertyValue Property="Label" String="Ciudad" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="District" />
+                                    <PropertyValue Property="Label" String="Distrito" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="StreetnameAdd" />
+                                    <PropertyValue Property="Label" String="Calle" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="HousenumberAdd" />
+                                    <PropertyValue Property="Label" String="Número" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Country" />
+                                    <PropertyValue Property="Label" String="Clave País" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="RegionAdd" />
+                                    <PropertyValue Property="Label" String="Región" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Phonenumber" />
+                                    <PropertyValue Property="Label" String="Teléfono" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Mobilephonenumber" />
+                                    <PropertyValue Property="Label" String="Teléfono Celular" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Emailaddress" />
+                                    <PropertyValue Property="Label" String="Correo Electronico" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZCBP_Datos_ODATAType/partner">
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false" />
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZAYUDA_PARTNER" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="partner" />
+                                    <PropertyValue Property="ValueListProperty" String="partner" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="name_org1" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZCBP_Datos_ODATAType/title_medi">
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false" />
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZAYUDA_TITLE" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="title_medi" />
+                                    <PropertyValue Property="ValueListProperty" String="title_medi" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="title_medi" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZCBP_Datos_ODATAType/country">
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false" />
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZAYUDA_LAND1" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="country" />
+                                    <PropertyValue Property="ValueListProperty" String="land1" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="landx" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZCBP_Datos_ODATAType/region">
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false" />
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZAYUDA_REGION" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="region" />
+                                    <PropertyValue Property="ValueListProperty" String="bland" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="bezei" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

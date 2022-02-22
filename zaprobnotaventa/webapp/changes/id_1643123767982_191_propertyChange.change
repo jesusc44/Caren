@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1643123767982_191_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "zaprobnotaventa.zaprobnotaventa",
+    "packageName": "",
+    "content": {
+        "property": "useExportToExcel",
+        "newValue": true
+    },
+    "selector": {
+        "id": "zaprobnotaventa.zaprobnotaventa::sap.suite.ui.generic.template.ListReport.view.ListReport::ZPEDIDOS_BLOQUEADOS_ODATA--listReport",
+        "idIsLocal": false,
+        "type": "sap.ui.comp.smarttable.SmartTable"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/zaprobnotaventa.zaprobnotaventa/changes/",
+    "projectId": "zaprobnotaventa.zaprobnotaventa",
+    "creation": 1643123767982,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "latest",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "1.0.0",
+        "to": "1.0.0",
+        "creation": "1.0.0"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}

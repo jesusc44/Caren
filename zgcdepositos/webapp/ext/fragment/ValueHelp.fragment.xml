@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Cuenta"
+		class="sapUiPopupWithPadding"
+		items="{/ZAYUDA_CUENTA}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<StandardListItem			
+			title="{cuenta}"
+			description="{cod_banco}" />
+	</SelectDialog>
+</core:FragmentDefinition>
