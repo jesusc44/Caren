@@ -10,7 +10,7 @@
     height="100%"
     width="100%"
 >
-    <Shell id="shell">
+    <Shell id="shell" appWidthLimited="false">
         <App id="app" width="100%">
             <pages>
                 <Page id="page" title="{i18n>title}">

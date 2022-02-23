@@ -50,6 +50,15 @@
                     "subTitle": "{{flpSubtitle}}",
                     "icon": ""
                 }
+            },
+            "outbounds": {
+                "zgcdepositos-zgcdepositos-outbound":{
+                    "semanticObject": "zgcdepositos",
+                    "action": "manage"                   
+
+                }
+               
+
             }
         }
     },
@@ -68,6 +77,7 @@
             "tablet": true,
             "phone": true
         }
+        
     },
     "sap.ui5": {
         "flexEnabled": false,

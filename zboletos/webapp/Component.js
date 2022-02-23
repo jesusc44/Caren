@@ -8,7 +8,8 @@ sap.ui.define([
 
         return UIComponent.extend("zboletos.zboletos.Component", {
             metadata: {
-                manifest: "json"
+                manifest: "json",
+                config : { fullWidth : true}
             },
 
             /**

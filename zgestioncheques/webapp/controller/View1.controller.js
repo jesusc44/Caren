@@ -8,6 +8,9 @@ sap.ui.define([
     "sap/m/Button",
     "sap/m/ButtonType",
     "sap/m/Text",
+    
+    
+    
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -17,6 +20,24 @@ sap.ui.define([
 
         return Controller.extend("zgestioncheques.zgestioncheques.controller.View1", {
             onInit: function () {
+
+            },
+           /* onDeposito: function (oEvent) {
+                console.log("Probando")
+                // var supplier = oEvent.getSource().getBindingContext().getProperty("Product/SupplierID"); // read SupplierID from OData path Product/SupplierID
+                var oCrossAppNav = sap.ushell.Container.getService("CrossApplicationNavigation");  // get a handle on the global XAppNav service
+                var hrefForProductDisplay = oCrossAppNav.hrefForExternal({
+                    target : { semanticObject : "zgcdepositos", action : "manage" },
+                    //params : { ProductID : [ "102343333" ] }
+                  }); 
+                 
+                
+               
+            },*/
+            onAfterRendering: function () {
+                //var oTable = this.byId("LineItemsSmartTable").getTable();
+                //oTable.setFooter('Total: ')
+
 
             },
             /*         onCambiarStatus:function(){
@@ -77,7 +98,7 @@ sap.ui.define([
                         oTableSmart.setEditable(false);
                         //console.log(oResponse)
                         var errorObj1 = JSON.parse(oResponse.data.__batchResponses[0].response.body);
-                       //console.log(errorObj1)
+                        //console.log(errorObj1)
                         var log = errorObj1.error.innererror.errordetails;
                         for (var i = 0; i < log.length; i++) {
                             console.log(log[i].message)
@@ -91,7 +112,7 @@ sap.ui.define([
 
                             //
                             switch (log[i].severity) {
-                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.ERROR, "Error"); break;
+                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
                                 case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
                                 case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
                                 case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
@@ -118,65 +139,65 @@ sap.ui.define([
                     }
                 });
             },
-            onDeposito: function () {
-              /*  var oTableSmart = this.byId("LineItemsSmartTable");
-                var oTable = oTableSmart.getTable();
-                var sItems = oTable.getSelectedIndices();
-                if (sItems.length == 0) {
-                    MessageToast.show("Seleccione al menos un ítem");
-                }
-                else {
-                    var selectedContexts = [];
-                    console.log(sItems)
-                    for (var i = 0; i < sItems.length; i++) {
-                        var indice = sItems[i];
-                        var oContext = oTable.getContextByIndex(indice);
-                        oContext.getModel().setProperty(oContext.getPath() + '/accion', '1');
-                        console.log(oContext.getPath());
-                    }
-                    oTable.getModel().submitChanges({
-                        success: function (oData, oResponse) {
-                            // Success
-                            oTable.getModel().refresh(true);
-
-                            MessageToast.show("Cambios guardados exitosamente");
-                        },
-                        error: function (oError) {
-                            // Error
-                            MessageToast.show("Error al guardar los cambios");
-                        }
-                    });
-                }*/
-            },
+            /*onDeposito: function () {
+                  var oTableSmart = this.byId("LineItemsSmartTable");
+                  var oTable = oTableSmart.getTable();
+                  var sItems = oTable.getSelectedIndices();
+                  if (sItems.length == 0) {
+                      MessageToast.show("Seleccione al menos un ítem");
+                  }
+                  else {
+                      var selectedContexts = [];
+                      console.log(sItems)
+                      for (var i = 0; i < sItems.length; i++) {
+                          var indice = sItems[i];
+                          var oContext = oTable.getContextByIndex(indice);
+                          oContext.getModel().setProperty(oContext.getPath() + '/accion', '1');
+                          console.log(oContext.getPath());
+                      }
+                      oTable.getModel().submitChanges({
+                          success: function (oData, oResponse) {
+                              // Success
+                              oTable.getModel().refresh(true);
+  
+                              MessageToast.show("Cambios guardados exitosamente");
+                          },
+                          error: function (oError) {
+                              // Error
+                              MessageToast.show("Error al guardar los cambios");
+                          }
+                      });
+                  }
+            },*/
             onAnular: function () {
-              /*  var oTableSmart = this.byId("LineItemsSmartTable");
-                var oTable = oTableSmart.getTable();
-                var sItems = oTable.getSelectedIndices();
-                if (sItems.length == 0) {
-                    MessageToast.show("Seleccione al menos un ítem");
-                }
-                else {
-                    var selectedContexts = [];
-                    console.log(sItems)
-                    for (var i = 0; i < sItems.length; i++) {
-                        var indice = sItems[i];
-                        var oContext = oTable.getContextByIndex(indice);
-                        oContext.getModel().setProperty(oContext.getPath() + '/accion', '2');
-                        console.log(oContext.getPath());
-                    }
-                    oTable.getModel().submitChanges({
-                        success: function (oData, oResponse) {
-                            // Success
-                            oTable.getModel().refresh(true);
-
-                            MessageToast.show("Cambios guardados exitosamente");
-                        },
-                        error: function (oError) {
-                            // Error
-                            MessageToast.show("Error al guardar los cambios");
-                        }
-                    });
-                }*/
+                /*  var oTableSmart = this.byId("LineItemsSmartTable");
+                  var oTable = oTableSmart.getTable();
+                  var sItems = oTable.getSelectedIndices();
+                  if (sItems.length == 0) {
+                      MessageToast.show("Seleccione al menos un ítem");
+                  }
+                  else {
+                      var selectedContexts = [];
+                      console.log(sItems)
+                      for (var i = 0; i < sItems.length; i++) {
+                          var indice = sItems[i];
+                          var oContext = oTable.getContextByIndex(indice);
+                          oContext.getModel().setProperty(oContext.getPath() + '/accion', '2');
+                          console.log(oContext.getPath());
+                      }
+                      oTable.getModel().submitChanges({
+                          success: function (oData, oResponse) {
+                              // Success
+                              oTable.getModel().refresh(true);
+  
+                              MessageToast.show("Cambios guardados exitosamente");
+                          },
+                          error: function (oError) {
+                              // Error
+                              MessageToast.show("Error al guardar los cambios");
+                          }
+                      });
+                  }*/
             },
             onCancel: function () {
                 if (!this.oApproveDialog) {

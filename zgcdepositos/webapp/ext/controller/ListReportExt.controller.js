@@ -64,7 +64,7 @@ sap.ui.define([
 
                             //
                             switch (log[i].severity) {
-                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.ERROR, "Error"); break;
+                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
                                 case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
                                 case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
                                 case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
@@ -164,7 +164,7 @@ sap.ui.define([
                         for (var i = 0; i < log.length; i++) {
                             console.log(log[i].message)
                             switch (log[i].severity) {
-                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.ERROR, "Error"); break;
+                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
                                 case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
                                 case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
                                 case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;

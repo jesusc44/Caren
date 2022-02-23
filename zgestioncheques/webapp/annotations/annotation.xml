@@ -61,7 +61,7 @@
                     </Record>
                 </Annotation>
             </Annotations>
-              <Annotations Target="SAP.ZCDS_GESTION_CHEQUES_ODATAType/cme_destino">
+            <Annotations Target="SAP.ZCDS_GESTION_CHEQUES_ODATAType/cme_destino">
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
                 <Annotation Term="Common.ValueList">
                     <Record Type="Common.ValueListType">
@@ -80,12 +80,43 @@
                     </Record>
                 </Annotation>
             </Annotations>
-             <Annotations Target="SAP.ZAYUDA_CME_DESTINOType/zumskz_des">
+            <Annotations Target="SAP.ZAYUDA_CME_DESTINOType/zumskz_des">
                 <Annotation Term="Common.Text" Path="zktext_des">
-                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>                    
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly" />
                 </Annotation>
             </Annotations>
             <Annotations Target="SAP.ZCDS_GESTION_CHEQUES_ODATAType">
+                <Annotation Term="UI.PresentationVariant">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="vencimiento" />
+                                    <PropertyValue Property="Descending" Bool="true" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <!--     <PropertyValue Property="GroupBy">
+                            <Collection>
+                                    <PropertyPath>kunnr</PropertyPath> />
+                                    <PropertyPath>belnr</PropertyPath> />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TotalBy" />
+                        <PropertyValue Property="Total" />
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequestAtLeast">
+                            <Collection>
+                                    <PropertyPath>kunnr</PropertyPath> />
+                                    <PropertyPath>belnr</PropertyPath> />
+                            </Collection>
+                        </PropertyValue>-->
+                    </Record>
+                </Annotation>
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">

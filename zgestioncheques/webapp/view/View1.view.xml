@@ -9,8 +9,8 @@ xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 height="100%"
 width="100%"
 >
-	<Shell id="shell">
-		<App id="app" width="100%">
+	<Shell id="shell" appWidthLimited="false">
+		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<VBox width="100%" 
@@ -53,9 +53,10 @@ width="100%"
 									<OverflowToolbarButton id="editButton" icon="sap-icon://edit" tooltip="Editar" text="Editar" press="onEdit"/>
 									<OverflowToolbarButton id="saveButton" icon="sap-icon://save" text="Save" type="Transparent" press="onSave" visible="false"/>
 									<Button id="cancelButton" text="Cancelar" type="Transparent" press="onCancel" visible="false"/>
-									
+                                    
 								</OverflowToolbar>
 							</smartTable:customToolbar>
+                            
 							<smartTable:layoutData>
 								<FlexItemData growFactor="1" baseSize="0%"/>
 							</smartTable:layoutData>

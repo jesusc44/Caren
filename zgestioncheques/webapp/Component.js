@@ -8,7 +8,8 @@ sap.ui.define([
 
         return UIComponent.extend("zgestioncheques.zgestioncheques.Component", {
             metadata: {
-                manifest: "json"
+                manifest: "json",
+                config : { fullWidth : true}
             },
 
             /**
@@ -25,6 +26,7 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+               
             }
         });
     }
