@@ -65,6 +65,7 @@
                     <PropertyRef Name="xref3" />
                     <PropertyRef Name="umskz" />
                     <PropertyRef Name="bschl" />
+                    <PropertyRef Name="kunnr" />
                 </Key>
                 <Property Name="bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Sociedad" sap:creatable="false" sap:updatable="false" />
                 <Property Name="belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="No. Doc." sap:quickinfo="Número de un documento contable" sap:creatable="false" sap:updatable="false" />
@@ -73,11 +74,11 @@
                 <Property Name="xref3" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Garantia Orsan" sap:quickinfo="Clave de referencia para la posición de documento" sap:creatable="false" sap:updatable="false" />
                 <Property Name="umskz" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="CME Origen" sap:quickinfo="Indicador de operación en cuenta de mayor especial" sap:creatable="false" sap:updatable="false" />
                 <Property Name="bschl" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Clav. Contb" sap:quickinfo="Clave de contabilización" sap:creatable="false" sap:updatable="false" />
-                <Property Name="kunnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente" sap:quickinfo="Número de cliente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente" sap:quickinfo="Número de cliente" sap:creatable="false" sap:updatable="false" />
                 <Property Name="name_org1" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Nombre Cliente" sap:quickinfo="Campo ayuda p.búsqueda 1 (nombre 1/apellido)" sap:creatable="false" sap:updatable="false" />
                 <Property Name="ltext" Type="Edm.String" MaxLength="30" sap:label="Descripción CME" sap:quickinfo="Descripción detallada del indicador de cta.mayor especial" sap:creatable="false" sap:updatable="false" />
                 <Property Name="blart" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Clase Doc." sap:quickinfo="Clase de documento" sap:creatable="false" sap:updatable="false" />
-                <Property Name="augdt" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Compensación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="augdt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Compensación" sap:creatable="false" sap:updatable="false" />
                 <Property Name="augbl" Type="Edm.String" MaxLength="10" sap:label="Doc. Compensación" sap:creatable="false" sap:updatable="false" />
                 <Property Name="budat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fe. Contab" sap:quickinfo="Fecha de contabilización en el documento" sap:creatable="false" sap:updatable="false" />
                 <Property Name="bldat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha Doc." sap:quickinfo="Fecha de documento en documento" sap:creatable="false" sap:updatable="false" />
@@ -101,6 +102,7 @@
                 <Property Name="cuenta" Type="Edm.String" MaxLength="10" />
                 <Property Name="fecha" Type="Edm.DateTime" Precision="0" sap:display-format="Date" />
                 <Property Name="deposito" Type="Edm.String" MaxLength="10" />
+                <Property Name="criticality" Type="Edm.Byte" />
                 <NavigationProperty Name="to_cuenta" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_BC639870DB4EDF5B3D87FA26496B23BC" FromRole="FromRole_assoc_BC639870DB4EDF5B3D87FA26496B23BC" ToRole="ToRole_assoc_BC639870DB4EDF5B3D87FA26496B23BC" />
                 <NavigationProperty Name="to_estado" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_4C65A300990B1B60211EFBDB83A28406" FromRole="FromRole_assoc_4C65A300990B1B60211EFBDB83A28406" ToRole="ToRole_assoc_4C65A300990B1B60211EFBDB83A28406" />
                 <NavigationProperty Name="to_origen" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_52A2D17E8DB21F3A158385A3C1CC299D" FromRole="FromRole_assoc_52A2D17E8DB21F3A158385A3C1CC299D" ToRole="ToRole_assoc_52A2D17E8DB21F3A158385A3C1CC299D" />
@@ -135,24 +137,6 @@
                     <End EntitySet="ZCDS_GC_DEPO_ODATA" Role="FromRole_assoc_BC639870DB4EDF5B3D87FA26496B23BC" />
                     <End EntitySet="ZAYUDA_CUENTA" Role="ToRole_assoc_BC639870DB4EDF5B3D87FA26496B23BC" />
                 </AssociationSet>
-                <FunctionImport Name="Deposito" ReturnType="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType" EntitySet="ZCDS_GC_DEPO_ODATA" m:HttpMethod="PUT" sap:action-for="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType" sap:applicable-path="IsActiveDeposito">
-                    <Parameter Name="bukrs" Type="Edm.String" Mode="In" />
-                    <Parameter Name="belnr" Type="Edm.String" Mode="In" />
-                    <Parameter Name="gjahr" Type="Edm.String" Mode="In" />
-                    <Parameter Name="xref1" Type="Edm.String" Mode="In" />
-                    <Parameter Name="xref3" Type="Edm.String" Mode="In" />
-                    <Parameter Name="umskz" Type="Edm.String" Mode="In" />
-                    <Parameter Name="bschl" Type="Edm.String" Mode="In" />
-                </FunctionImport>
-                <FunctionImport Name="Anular" ReturnType="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType" EntitySet="ZCDS_GC_DEPO_ODATA" m:HttpMethod="PUT" sap:action-for="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType" sap:applicable-path="IsActiveAnular">
-                    <Parameter Name="bukrs" Type="Edm.String" Mode="In" />
-                    <Parameter Name="belnr" Type="Edm.String" Mode="In" />
-                    <Parameter Name="gjahr" Type="Edm.String" Mode="In" />
-                    <Parameter Name="xref1" Type="Edm.String" Mode="In" />
-                    <Parameter Name="xref3" Type="Edm.String" Mode="In" />
-                    <Parameter Name="umskz" Type="Edm.String" Mode="In" />
-                    <Parameter Name="bschl" Type="Edm.String" Mode="In" />
-                </FunctionImport>
             </EntityContainer>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZGESTION_CHEQUES_DEPOSITOS_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true" />

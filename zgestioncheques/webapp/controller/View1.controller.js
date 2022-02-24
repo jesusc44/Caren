@@ -7,7 +7,7 @@ sap.ui.define([
     "sap/m/DialogType",
     "sap/m/Button",
     "sap/m/ButtonType",
-    "sap/m/Text",
+    "sap/m/Text"
     
     
     
@@ -34,12 +34,12 @@ sap.ui.define([
                 
                
             },*/
-            onAfterRendering: function () {
+            //onAfterRendering: function () {
                 //var oTable = this.byId("LineItemsSmartTable").getTable();
                 //oTable.setFooter('Total: ')
 
 
-            },
+           // },
             /*         onCambiarStatus:function(){
                          var oTableSmart = this.byId("LineItemsSmartTable");
                          var Model = oTableSmart.getModel();

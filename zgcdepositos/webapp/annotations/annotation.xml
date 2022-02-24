@@ -94,16 +94,6 @@
                             <PropertyValue Property="Value" Path="taxnum" />
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
                         </Record>
-                        <Record Type="UI.DataFieldForAction">
-                            <PropertyValue Property="Label" String="Deposito" />
-                            <PropertyValue Property="Action" String="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZGESTION_CHEQUES_DEPOSITOS_SRV_Entities/Deposito" />
-                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/ChangeSet" />
-                        </Record>
-                         <Record Type="UI.DataFieldForAction">
-                            <PropertyValue Property="Label" String="Anular" />
-                            <PropertyValue Property="Action" String="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZGESTION_CHEQUES_DEPOSITOS_SRV_Entities/Anular" />
-                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/ChangeSet" />
-                        </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="CME Origen" />
                             <PropertyValue Property="Value" Path="umskz" />
@@ -160,6 +150,10 @@
                             <PropertyValue Property="Label" String="Cliente" />
                             <PropertyValue Property="Value" Path="kunnr" />
                         </Record>
+                          <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Rut Cliente" />
+                            <PropertyValue Property="Value" Path="taxnum" />
+                        </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Garantia Orsan" />
                             <PropertyValue Property="Value" Path="xref3" />
@@ -167,6 +161,7 @@
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Vencimiento" />
                             <PropertyValue Property="Value" Path="vencimiento" />
+                            <PropertyValue Property="Criticality" Path="criticality" />
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Fecha Cheque" />

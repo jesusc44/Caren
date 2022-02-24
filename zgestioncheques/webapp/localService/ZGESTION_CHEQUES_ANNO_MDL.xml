@@ -50,11 +50,12 @@
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="bukrs" />
                         </Record>
+                        <!--
                         <Record Type="UI.DataFieldForAction">
                             <PropertyValue Property="Label" String="Documento Venta" />
                             <PropertyValue Property="Action" String="ZGESTION_CHEQUES_SRV.ZGESTION_CHEQUES_SRV_Entities/Status" />
                             <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/ChangeSet" />
-                        </Record>
+                        </Record>-->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="CME Origen" />
                             <PropertyValue Property="Value" Path="umskz" />

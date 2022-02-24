@@ -53,8 +53,7 @@ width="100%"
 									<OverflowToolbarButton id="editButton" icon="sap-icon://edit" tooltip="Editar" text="Editar" press="onEdit"/>
 									<OverflowToolbarButton id="saveButton" icon="sap-icon://save" text="Save" type="Transparent" press="onSave" visible="false"/>
 									<Button id="cancelButton" text="Cancelar" type="Transparent" press="onCancel" visible="false"/>
-                                    
-								</OverflowToolbar>
+    							</OverflowToolbar>
 							</smartTable:customToolbar>
                             
 							<smartTable:layoutData>
