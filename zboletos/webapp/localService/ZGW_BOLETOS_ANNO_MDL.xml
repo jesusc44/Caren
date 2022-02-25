@@ -1,122 +1,90 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
     </edmx:Reference>
-    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
-        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
     </edmx:Reference>
-    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
     </edmx:Reference>
-    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
     </edmx:Reference>
-    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
     </edmx:Reference>
-    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
         <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
     </edmx:Reference>
-    <edmx:Reference Uri="../../../sap/zgw_boletos_srv/$metadata">
-        <edmx:Include Namespace="ZGW_BOLETOS_SRV" Alias="SAP" />
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
     </edmx:Reference>
-    <edmx:DataServices>
-        <Schema Namespace="zgw_boletos_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-            <Annotations Target="ZGW_BOLETOS_SRV_02.ZVSD_BOLETOS_ODATAType">
-                <Annotation Term="UI.LineItem">
-                    <Collection>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Clase de Factura" />
-                            <PropertyValue Property="Value" Path="desc_blart" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Numero de Factura" />
-                            <PropertyValue Property="Value" Path="factura" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Fecha de Emisión" />
-                            <PropertyValue Property="Value" Path="fkdat" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Numero Nota de Venta" />
-                            <PropertyValue Property="Value" Path="zuonr" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Numero de DTE" />
-                            <PropertyValue Property="Value" Path="xblnr" />
-                        </Record>
-                          <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Clase de Entrega" />
-                            <PropertyValue Property="Value" Path="desc_lfart" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Numero de Entrega" />
-                            <PropertyValue Property="Value" Path="entrega" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Estatus de la entrega" />
-                            <PropertyValue Property="Value" Path="uvwak" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Estatus de la factura" />
-                            <PropertyValue Property="Value" Path="rfbsk" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Prioridad" />
-                            <PropertyValue Property="Value" Path="lprio" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Estado" />
-                            <PropertyValue Property="Value" Path="estado" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Código de Cliente" />
-                            <PropertyValue Property="Value" Path="kunnr" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Nombre de cliente" />
-                            <PropertyValue Property="Value" Path="name" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Volumen" />
-                            <PropertyValue Property="Value" Path="volum" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Transporte" />
-                            <PropertyValue Property="Value" Path="num_tras" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Pedido de Traslado" />
-                            <PropertyValue Property="Value" Path="ped_traslado" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Estatus del transporte" />
-                            <PropertyValue Property="Value" Path="estatus" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Vendedor" />
-                            <PropertyValue Property="Value" Path="ename" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Orden de Transporte" />
-                            <PropertyValue Property="Value" Path="orden_transporte" />
-                        </Record>
-                    </Collection>
+    <edmx:Reference Uri="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_BOLETOS_SRV_02" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZVSD_BOLETOS_ODATAType" sap:label="Odata Nro Boletos" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="factura" />
+                    <PropertyRef Name="entrega" />
+                    <PropertyRef Name="ped_traslado" />
+                </Key>
+                <Property Name="factura" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Numero de Factura" sap:quickinfo="Documento de facturación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="entrega" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Numero de Entrega" sap:quickinfo="Entrega" sap:creatable="false" sap:updatable="false" />
+                <Property Name="ped_traslado" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Pedido de Traslado" sap:creatable="false" sap:updatable="false" />
+                <Property Name="fkdat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha de Emisión" sap:quickinfo="Fecha factura" sap:creatable="false" sap:updatable="false" />
+                <Property Name="zuonr" Type="Edm.String" MaxLength="18" sap:label="Número Nota de Venta" sap:quickinfo="Número de asignación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="xblnr" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Numero de DTE" sap:quickinfo="Número de documento de referencia" sap:creatable="false" sap:updatable="false" />
+                <Property Name="uvwak" Type="Edm.String" MaxLength="60" sap:label="Estatus de la entrega" sap:quickinfo="Texto breve p.valores fijos" sap:creatable="false" sap:updatable="false" />
+                <Property Name="rfbsk" Type="Edm.String" MaxLength="60" sap:label="Estatus de la factura" sap:quickinfo="Texto breve p.valores fijos" sap:creatable="false" sap:updatable="false" />
+                <Property Name="lprio" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Prioridad" sap:quickinfo="Prioridad de entrega" sap:creatable="false" sap:updatable="false" />
+                <Property Name="estado" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Estado" sap:quickinfo="Estado incompl.movimiento de mercancías (cabecera)" sap:creatable="false" sap:updatable="false" />
+                <Property Name="kunnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Código de Cliente" sap:quickinfo="Destinatario de mercancías" sap:creatable="false" sap:updatable="false" />
+                <Property Name="name" Type="Edm.String" MaxLength="81" sap:label="Nombre de cliente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="volum" Type="Edm.Decimal" Precision="15" Scale="3" sap:label="Volumen" sap:creatable="false" sap:updatable="false" />
+                <Property Name="num_tras" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Transporte" sap:quickinfo="Documento comercial subsiguiente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="estatus" Type="Edm.String" MaxLength="20" sap:label="Estatus del transporte" sap:creatable="false" sap:updatable="false" />
+                <Property Name="ename" Type="Edm.String" MaxLength="40" sap:label="Vendedor" sap:quickinfo="Nombre editado del empleado o candidato" sap:creatable="false" sap:updatable="false" />
+                <Property Name="orden_transporte" Type="Edm.String" MaxLength="45" sap:label="Orden de Transporte" sap:quickinfo="Orden Transporte" />
+                <Property Name="desc_blart" Type="Edm.String" MaxLength="23" sap:label="Clase de Factura" sap:creatable="false" sap:updatable="false" />
+                <Property Name="desc_lfart" Type="Edm.String" MaxLength="25" sap:label="Clase de Entrega" sap:creatable="false" sap:updatable="false" />
+                <Property Name="ped_ventas" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Pedido de Ventas" sap:quickinfo="Documento comercial anterior" sap:creatable="false" sap:updatable="false" />
+            </EntityType>
+            <EntityContainer Name="ZGW_BOLETOS_SRV_02_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZVSD_BOLETOS_ODATA" EntityType="ZGW_BOLETOS_SRV_02.ZVSD_BOLETOS_ODATAType" sap:creatable="false" sap:deletable="false" sap:content-version="1" />
+            </EntityContainer>
+            <Annotations Target="ZGW_BOLETOS_SRV_02.ZGW_BOLETOS_SRV_02_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true" />
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None" />
+                    </Record>
                 </Annotation>
-                <Annotation Term="UI.SelectionFields">
+            </Annotations>
+            <Annotations Target="ZGW_BOLETOS_SRV_02.ZVSD_BOLETOS_ODATAType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
                     <Collection>
-                        <PropertyPath>factura</PropertyPath>
-                        <PropertyPath>kunnr</PropertyPath>
-                        <PropertyPath>fkdat</PropertyPath>
-                        <PropertyPath>xblnr</PropertyPath>
+                        <PropertyPath>ped_traslado</PropertyPath>
                         <PropertyPath>entrega</PropertyPath>
-                        <PropertyPath>estado</PropertyPath>
-                        <PropertyPath>name</PropertyPath>
-                        <PropertyPath>num_tras</PropertyPath>
+                        <PropertyPath>factura</PropertyPath>
                     </Collection>
                 </Annotation>
             </Annotations>
+            <atom:link rel="self" href="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/sap/ZGW_BOLETOS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
+            <atom:link rel="latest-version" href="https://vhavtds4ci.hec.caren.cl:44300/sap/opu/odata/sap/ZGW_BOLETOS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom" />
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

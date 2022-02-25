@@ -31,7 +31,7 @@
                             <PropertyValue Property="Value" Path="desc_blart" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Numero de Factura" />
+                            <PropertyValue Property="Label" String="Número de Factura" />
                             <PropertyValue Property="Value" Path="factura" />
                         </Record>
                         <Record Type="UI.DataField">
@@ -39,11 +39,11 @@
                             <PropertyValue Property="Value" Path="fkdat" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Numero Nota de Venta" />
+                            <PropertyValue Property="Label" String="Número Nota de Venta" />
                             <PropertyValue Property="Value" Path="zuonr" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Numero de DTE" />
+                            <PropertyValue Property="Label" String="Número de DTE" />
                             <PropertyValue Property="Value" Path="xblnr" />
                         </Record>
                         <Record Type="UI.DataField">
@@ -51,7 +51,7 @@
                             <PropertyValue Property="Value" Path="desc_lfart" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Numero de Entrega" />
+                            <PropertyValue Property="Label" String="Número de Entrega" />
                             <PropertyValue Property="Value" Path="entrega" />
                         </Record>
                         <Record Type="UI.DataField">
@@ -91,6 +91,10 @@
                             <PropertyValue Property="Value" Path="ped_traslado" />
                         </Record>
                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Pedido de Venta" />
+                            <PropertyValue Property="Value" Path="ped_ventas" />
+                        </Record>
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Estatus del transporte" />
                             <PropertyValue Property="Value" Path="estatus" />
                         </Record>
@@ -109,6 +113,7 @@
                         <PropertyPath>factura</PropertyPath>
                         <PropertyPath>kunnr</PropertyPath>
                         <PropertyPath>fkdat</PropertyPath>
+                        <PropertyPath>zuonr</PropertyPath>
                         <PropertyPath>xblnr</PropertyPath>
                         <PropertyPath>entrega</PropertyPath>
                         <PropertyPath>estado</PropertyPath>

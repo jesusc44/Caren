@@ -22,6 +22,12 @@ sap.ui.define([
             onInit: function () {
 
             },
+            onAfterRendering:function (){
+                
+                /*var oTable = this.byId('LineItemsSmartTable');
+                console.log(oTable)
+                oTable._getSelectAllCheckbox().setVisible(false);*/
+            },
            /* onDeposito: function (oEvent) {
                 console.log("Probando")
                 // var supplier = oEvent.getSource().getBindingContext().getProperty("Product/SupplierID"); // read SupplierID from OData path Product/SupplierID
@@ -120,6 +126,7 @@ sap.ui.define([
                                     sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
                             }
                             //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
+
 
                         }
 

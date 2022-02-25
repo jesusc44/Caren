@@ -33,11 +33,13 @@
                 <Key>
                     <PropertyRef Name="factura" />
                     <PropertyRef Name="entrega" />
+                    <PropertyRef Name="ped_traslado" />
                 </Key>
                 <Property Name="factura" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Numero de Factura" sap:quickinfo="Documento de facturación" sap:creatable="false" sap:updatable="false" />
                 <Property Name="entrega" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Numero de Entrega" sap:quickinfo="Entrega" sap:creatable="false" sap:updatable="false" />
+                <Property Name="ped_traslado" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Pedido de Traslado" sap:creatable="false" sap:updatable="false" />
                 <Property Name="fkdat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Fecha de Emisión" sap:quickinfo="Fecha factura" sap:creatable="false" sap:updatable="false" />
-                <Property Name="zuonr" Type="Edm.String" MaxLength="18" sap:label="Numero Nota de Venta" sap:quickinfo="Número de asignación" sap:creatable="false" sap:updatable="false" />
+                <Property Name="zuonr" Type="Edm.String" MaxLength="18" sap:label="Número Nota de Venta" sap:quickinfo="Número de asignación" sap:creatable="false" sap:updatable="false" />
                 <Property Name="xblnr" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Numero de DTE" sap:quickinfo="Número de documento de referencia" sap:creatable="false" sap:updatable="false" />
                 <Property Name="uvwak" Type="Edm.String" MaxLength="60" sap:label="Estatus de la entrega" sap:quickinfo="Texto breve p.valores fijos" sap:creatable="false" sap:updatable="false" />
                 <Property Name="rfbsk" Type="Edm.String" MaxLength="60" sap:label="Estatus de la factura" sap:quickinfo="Texto breve p.valores fijos" sap:creatable="false" sap:updatable="false" />
@@ -49,10 +51,10 @@
                 <Property Name="num_tras" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Transporte" sap:quickinfo="Documento comercial subsiguiente" sap:creatable="false" sap:updatable="false" />
                 <Property Name="estatus" Type="Edm.String" MaxLength="20" sap:label="Estatus del transporte" sap:creatable="false" sap:updatable="false" />
                 <Property Name="ename" Type="Edm.String" MaxLength="40" sap:label="Vendedor" sap:quickinfo="Nombre editado del empleado o candidato" sap:creatable="false" sap:updatable="false" />
-                <Property Name="orden_transporte" Type="Edm.String" MaxLength="10" sap:label="Orden de Transporte" sap:quickinfo="Orden Transporte" />
+                <Property Name="orden_transporte" Type="Edm.String" MaxLength="45" sap:label="Orden de Transporte" sap:quickinfo="Orden Transporte" />
                 <Property Name="desc_blart" Type="Edm.String" MaxLength="23" sap:label="Clase de Factura" sap:creatable="false" sap:updatable="false" />
                 <Property Name="desc_lfart" Type="Edm.String" MaxLength="25" sap:label="Clase de Entrega" sap:creatable="false" sap:updatable="false" />
-                <Property Name="ped_traslado" Type="Edm.String" MaxLength="10" sap:label="Pedido de Traslado" sap:creatable="false" sap:updatable="false" />
+                <Property Name="ped_ventas" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Pedido de Ventas" sap:quickinfo="Documento comercial anterior" sap:creatable="false" sap:updatable="false" />
             </EntityType>
             <EntityContainer Name="ZGW_BOLETOS_SRV_02_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="ZVSD_BOLETOS_ODATA" EntityType="ZGW_BOLETOS_SRV_02.ZVSD_BOLETOS_ODATAType" sap:creatable="false" sap:deletable="false" sap:content-version="1" />
@@ -75,6 +77,7 @@
             <Annotations Target="ZGW_BOLETOS_SRV_02.ZVSD_BOLETOS_ODATAType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.SemanticKey">
                     <Collection>
+                        <PropertyPath>ped_traslado</PropertyPath>
                         <PropertyPath>entrega</PropertyPath>
                         <PropertyPath>factura</PropertyPath>
                     </Collection>

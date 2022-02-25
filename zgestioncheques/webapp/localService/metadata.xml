@@ -91,6 +91,7 @@
                 <Property Name="IsActiveStatus" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="VERDADERO" sap:quickinfo="Elem.datos p.dominio BOOLE: VERDADERO (=&quot;X&quot;) y FALSO (=&quot; &quot;)" />
                 <Property Name="accion" Type="Edm.String" MaxLength="1" />
                 <Property Name="criticality" Type="Edm.Byte" />
+                <Property Name="usnam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Modificado Por" sap:quickinfo="Nombre del usuario" sap:creatable="false" sap:updatable="false" />
                 <NavigationProperty Name="to_destino" Relationship="ZGESTION_CHEQUES_SRV.assoc_92F8670CAB4CB5F0DCBDD35F4B89D3D7" FromRole="FromRole_assoc_92F8670CAB4CB5F0DCBDD35F4B89D3D7" ToRole="ToRole_assoc_92F8670CAB4CB5F0DCBDD35F4B89D3D7" />
                 <NavigationProperty Name="to_estado" Relationship="ZGESTION_CHEQUES_SRV.assoc_7E86208F73320577AC9C4AC314E9E38B" FromRole="FromRole_assoc_7E86208F73320577AC9C4AC314E9E38B" ToRole="ToRole_assoc_7E86208F73320577AC9C4AC314E9E38B" />
                 <NavigationProperty Name="to_origen" Relationship="ZGESTION_CHEQUES_SRV.assoc_868E9553CF80697E66B7D1059F9CAA20" FromRole="FromRole_assoc_868E9553CF80697E66B7D1059F9CAA20" ToRole="ToRole_assoc_868E9553CF80697E66B7D1059F9CAA20" />

@@ -84,6 +84,10 @@
              <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/accion">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
+             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/criticality">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType">
                 <Annotation Term="UI.LineItem">
                     <Collection>
@@ -202,6 +206,10 @@
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Nombre Cliente" />
                             <PropertyValue Property="Value" Path="name_org1" />
+                        </Record>
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Modificado Por" />
+                            <PropertyValue Property="Value" Path="usnam" />
                         </Record>
                     </Collection>
                 </Annotation>
