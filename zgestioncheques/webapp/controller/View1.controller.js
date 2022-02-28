@@ -24,9 +24,13 @@ sap.ui.define([
             },
             onAfterRendering:function (){
                 
-                /*var oTable = this.byId('LineItemsSmartTable');
-                console.log(oTable)
-                oTable._getSelectAllCheckbox().setVisible(false);*/
+                var oTable = this.byId('LineItemsSmartTable');
+                //console.log(oTable)
+                //oTable.getTable().get .setVisible(false);
+                oTable.getTable().setEnableSelectAll(false);
+                oTable.getTable().setSelectionMode("None");
+                
+                console.log(oTable.getTable().getSelectionMode())
             },
            /* onDeposito: function (oEvent) {
                 console.log("Probando")

@@ -26,6 +26,8 @@
             <Annotations Target="ZGW_BOLETOS_SRV_02.ZVSD_BOLETOS_ODATAType">
                 <Annotation Term="UI.LineItem">
                     <Collection>
+                        
+                       
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Clase de Factura" />
                             <PropertyValue Property="Value" Path="desc_blart" />
@@ -90,10 +92,14 @@
                             <PropertyValue Property="Label" String="Pedido de Traslado" />
                             <PropertyValue Property="Value" Path="ped_traslado" />
                         </Record>
-                        <Record Type="UI.DataField">
+                         <Record Type="UI.DataFieldWithUrl">                            
+                            <PropertyValue Property="Value" Path="ped_ventas"/>                            
+                            <PropertyValue Property="Url" Path="url"/>
+                        </Record>
+                       <!-- <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Pedido de Venta" />
                             <PropertyValue Property="Value" Path="ped_ventas" />
-                        </Record>
+                        </Record> -->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Estatus del transporte" />
                             <PropertyValue Property="Value" Path="estatus" />
