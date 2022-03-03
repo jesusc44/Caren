@@ -36,6 +36,11 @@
                             <PropertyValue Property="Label" String="Número de Factura" />
                             <PropertyValue Property="Value" Path="factura" />
                         </Record>
+                        <!--<Record Type="UI.DataFieldWithUrl">                            
+                            <PropertyValue Property="Value" Path="factura"/>                            
+                            <PropertyValue Property="Url" Path="url2"/>
+                        </Record>-->
+                       
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Fecha de Emisión" />
                             <PropertyValue Property="Value" Path="fkdat" />
@@ -92,14 +97,14 @@
                             <PropertyValue Property="Label" String="Pedido de Traslado" />
                             <PropertyValue Property="Value" Path="ped_traslado" />
                         </Record>
-                         <Record Type="UI.DataFieldWithUrl">                            
+                         <!--<Record Type="UI.DataFieldWithUrl">                            
                             <PropertyValue Property="Value" Path="ped_ventas"/>                            
                             <PropertyValue Property="Url" Path="url"/>
-                        </Record>
-                       <!-- <Record Type="UI.DataField">
+                        </Record>-->
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Pedido de Venta" />
                             <PropertyValue Property="Value" Path="ped_ventas" />
-                        </Record> -->
+                        </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Estatus del transporte" />
                             <PropertyValue Property="Value" Path="estatus" />

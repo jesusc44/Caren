@@ -61,20 +61,17 @@
                     <PropertyRef Name="bukrs" />
                     <PropertyRef Name="belnr" />
                     <PropertyRef Name="gjahr" />
-                    <PropertyRef Name="xref1" />
-                    <PropertyRef Name="xref3" />
-                    <PropertyRef Name="umskz" />
-                    <PropertyRef Name="bschl" />
-                    <PropertyRef Name="kunnr" />
+                    <PropertyRef Name="buzei" />
                 </Key>
                 <Property Name="bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Sociedad" sap:creatable="false" sap:updatable="false" />
                 <Property Name="belnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="No. Doc." sap:quickinfo="Número de un documento contable" sap:creatable="false" sap:updatable="false" />
                 <Property Name="gjahr" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Año" sap:quickinfo="Ejercicio" sap:creatable="false" sap:updatable="false" />
-                <Property Name="xref1" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Nro. Cheque" sap:quickinfo="Clave de referencia de interlocutor comercial" sap:creatable="false" sap:updatable="false" />
-                <Property Name="xref3" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Garantia Orsan" sap:quickinfo="Clave de referencia para la posición de documento" sap:creatable="false" sap:updatable="false" />
-                <Property Name="umskz" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="CME Origen" sap:quickinfo="Indicador de operación en cuenta de mayor especial" sap:creatable="false" sap:updatable="false" />
-                <Property Name="bschl" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Clav. Contb" sap:quickinfo="Clave de contabilización" sap:creatable="false" sap:updatable="false" />
-                <Property Name="kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente" sap:quickinfo="Número de cliente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="buzei" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="NonNegative" sap:label="Posición" sap:quickinfo="Número del apunte contable dentro del documento contable" />
+                <Property Name="xref1" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nro. Cheque" sap:quickinfo="Clave de referencia de interlocutor comercial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="xref3" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Garantia Orsan" sap:quickinfo="Clave de referencia para la posición de documento" sap:creatable="false" sap:updatable="false" />
+                <Property Name="umskz" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="CME Origen" sap:quickinfo="Indicador de operación en cuenta de mayor especial" sap:creatable="false" sap:updatable="false" />
+                <Property Name="bschl" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Clav. Contb" sap:quickinfo="Clave de contabilización" sap:creatable="false" sap:updatable="false" />
+                <Property Name="kunnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cliente" sap:quickinfo="Número de cliente" sap:creatable="false" sap:updatable="false" />
                 <Property Name="name_org1" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Nombre Cliente" sap:quickinfo="Campo ayuda p.búsqueda 1 (nombre 1/apellido)" sap:creatable="false" sap:updatable="false" />
                 <Property Name="ltext" Type="Edm.String" MaxLength="30" sap:label="Descripción CME" sap:quickinfo="Descripción detallada del indicador de cta.mayor especial" sap:creatable="false" sap:updatable="false" />
                 <Property Name="blart" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Clase Doc." sap:quickinfo="Clase de documento" sap:creatable="false" sap:updatable="false" />
@@ -101,9 +98,10 @@
                 <Property Name="accion" Type="Edm.String" MaxLength="1" />
                 <Property Name="cuenta" Type="Edm.String" MaxLength="10" />
                 <Property Name="fecha" Type="Edm.DateTime" Precision="0" sap:display-format="Date" />
-                <Property Name="deposito" Type="Edm.String" MaxLength="10" />
+                <Property Name="deposito" Type="Edm.String" MaxLength="20" />
                 <Property Name="criticality" Type="Edm.Byte" />
                 <Property Name="usnam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Modificado Por" sap:quickinfo="Nombre del usuario" sap:creatable="false" sap:updatable="false" />
+                <Property Name="url" Type="Edm.String" MaxLength="104" />
                 <NavigationProperty Name="to_cuenta" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_BC639870DB4EDF5B3D87FA26496B23BC" FromRole="FromRole_assoc_BC639870DB4EDF5B3D87FA26496B23BC" ToRole="ToRole_assoc_BC639870DB4EDF5B3D87FA26496B23BC" />
                 <NavigationProperty Name="to_estado" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_4C65A300990B1B60211EFBDB83A28406" FromRole="FromRole_assoc_4C65A300990B1B60211EFBDB83A28406" ToRole="ToRole_assoc_4C65A300990B1B60211EFBDB83A28406" />
                 <NavigationProperty Name="to_origen" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_52A2D17E8DB21F3A158385A3C1CC299D" FromRole="FromRole_assoc_52A2D17E8DB21F3A158385A3C1CC299D" ToRole="ToRole_assoc_52A2D17E8DB21F3A158385A3C1CC299D" />
@@ -160,10 +158,7 @@
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.SemanticKey">
                     <Collection>
-                        <PropertyPath>bschl</PropertyPath>
-                        <PropertyPath>umskz</PropertyPath>
-                        <PropertyPath>xref3</PropertyPath>
-                        <PropertyPath>xref1</PropertyPath>
+                        <PropertyPath>buzei</PropertyPath>
                         <PropertyPath>gjahr</PropertyPath>
                         <PropertyPath>belnr</PropertyPath>
                         <PropertyPath>bukrs</PropertyPath>

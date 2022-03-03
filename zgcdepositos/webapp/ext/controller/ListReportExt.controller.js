@@ -2,19 +2,25 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "sap/ui/core/syncStyleClass",
     "sap/m/MessageToast",
-    "sap/ui/core/message/Message"
+    "sap/ui/core/message/Message",
+    "sap/ui/core/library",
 ],
-    function (Fragment, syncStyleClass, MessageToast, Message) {
+    function (Fragment, syncStyleClass, MessageToast, Message, library) {
         "use strict";
+        var MessageType = library.MessageType;
         return {
             onInit: function (params) {
-                var oMessageManager, oModel, oView;
+                var oMessageManager, oView;
+
                 oView = this.getView();
                 // set message model
                 oMessageManager = sap.ui.getCore().getMessageManager();
-                //oView.setModel(oMessageManager.getMessageModel(), "message");
+                oView.setModel(oMessageManager.getMessageModel(), "message");
                 // or just do it for the whole view
                 oMessageManager.registerObject(oView, true);
+
+
+
             },
             onDepositos: function (oEvent) {
                 Fragment.load({
@@ -36,7 +42,9 @@ sap.ui.define([
                 var oTable = this.byId("zgcdepositos.zgcdepositos::sap.suite.ui.generic.template.ListReport.view.ListReport::ZCDS_GC_DEPO_ODATA--GridTable");
                 var sItems = []
                 var sItems = oTable.getPlugins()[0].getSelectedIndices();
+                var mostrarMensajeButton = this.byId("mostrarMensaje");
                 console.log(sItems)
+                var newThis = this;
                 for (var i = 0; i < sItems.length; i++) {
                     var indice = sItems[i];
                     var oContext = oTable.getContextByIndex(indice);
@@ -63,25 +71,82 @@ sap.ui.define([
                               sap.ui.getCore().getMessageManager().addMessages(oMessage); */
 
                             //
+                            //
                             switch (log[i].severity) {
-                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
-                                case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
-                                case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
-                                case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                //case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                //case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                //default:sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                case "error":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Error,
+                                        description: 'Error',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                case "success":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Success,
+                                        description: 'Éxito',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                case "warning":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Warning,
+                                        description: 'Advertencia',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                // case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                case "info":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Information,
+                                        description: 'Información',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
                                 default:
-                                    sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                    //sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Information,
+                                        description: 'Información',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
 
 
                             }
                             //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
 
                         }
+
                         oTable.getModel().resetChanges();
+
+                        mostrarMensajeButton.firePress();
 
                         //sap.
                         //console.log(errorObj1);
                         //MessageToast.show("Documento Anulados");
-                        
+
                     },
                     error: function (oError) {
                         // Error
@@ -132,9 +197,11 @@ sap.ui.define([
                 this.oPopup.destroy();
                 this.oPopup = null;
             },
-            onDialogSaveButton: function () {
+            onDialogSaveButton: function (oEvent) {
                 var cuentaData = sap.ui.getCore().byId("cuentaInput").getValue();
                 var fechaData = sap.ui.getCore().byId("fechaInput").getDateValue();
+                var mostrarMensajeButton = this.byId("mostrarMensaje");
+
                 //console.log(fechaData)
                 var numData = sap.ui.getCore().byId("numInput").getValue();
                 var oTable = this.byId("zgcdepositos.zgcdepositos::sap.suite.ui.generic.template.ListReport.view.ListReport::ZCDS_GC_DEPO_ODATA--GridTable");
@@ -142,6 +209,7 @@ sap.ui.define([
                 //console.log(oTable.getPlugins()[0].getSelectedIndices())
                 var sItems = []
                 var sItems = oTable.getPlugins()[0].getSelectedIndices();
+                var newThis = this;
                 //console.log(sItems) 
                 for (var i = 0; i < sItems.length; i++) {
                     var indice = sItems[i];
@@ -164,18 +232,74 @@ sap.ui.define([
                         for (var i = 0; i < log.length; i++) {
                             console.log(log[i].message)
                             switch (log[i].severity) {
-                                case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
-                                case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
-                                case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
-                                case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                // case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                // case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                // case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                //  case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                //  default:sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                case "error":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Error,
+                                        description: 'Error',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                case "success":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Success,
+                                        description: 'Éxito',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                case "warning":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Warning,
+                                        description: 'Advertencia',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                // case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                case "info":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Information,
+                                        description: 'Información',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
                                 default:
-                                    sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                    //sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Information,
+                                        description: 'Información',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+
+
                             }
                             //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
 
                         }
                         // MessageToast.show("Cambios guardados exitosamente");
                         oTable.getModel().resetChanges()
+                        mostrarMensajeButton.firePress();
                     },
                     error: function (oError) {
                         // Error
@@ -186,7 +310,32 @@ sap.ui.define([
 
 
                 this._cerrarDialogo();
-            }
+            },
+            onMessagePopoverPress: function (oEvent) {
+                var oSourceControl = oEvent.getSource();
+                this._getMessagePopover().then(function (oMessagePopover) {
+                    oMessagePopover.openBy(oSourceControl);
+                });
+
+            },
+            onClearMessagePress: function () {
+                sap.ui.getCore().getMessageManager().removeAllMessages();
+            },
+            _getMessagePopover: function () {
+                var oView = this.getView();
+                // create popover lazily (singleton)
+                if (!this._pMessagePopover) {
+                    this._pMessagePopover = Fragment.load({
+                        id: oView.getId(),
+                        name: "zgcdepositos.zgcdepositos.ext.fragment.MessagePopup",
+                        type: "XML"
+                    }).then(function (oMessagePopover) {
+                        oView.addDependent(oMessagePopover);
+                        return oMessagePopover;
+                    });
+                }
+                return this._pMessagePopover;
+            },
 
         };
     });

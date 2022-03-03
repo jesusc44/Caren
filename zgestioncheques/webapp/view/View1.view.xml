@@ -51,8 +51,12 @@ width="100%"
 								<OverflowToolbar design="Transparent">
 									<ToolbarSpacer/>
 									<OverflowToolbarButton id="editButton" icon="sap-icon://edit" tooltip="Editar" text="Editar" press="onEdit"/>
-									<OverflowToolbarButton id="saveButton" icon="sap-icon://save" text="Save" type="Transparent" press="onSave" visible="false"/>
+                                    <OverflowToolbarButton id="saveButton" icon="sap-icon://save" text="Save" type="Transparent" press="onSave" visible="false"/>
+                                    <Button id="multiEditButton" text="Actualización Masiva" type="Transparent" press="onOpenMultiEdit" visible="false" /> 
 									<Button id="cancelButton" text="Cancelar" type="Transparent" press="onCancel" visible="false"/>
+                                    <Button id="mostrarMensaje" icon="sap-icon://alert" tooltip="Mostrar Mensajes" text="{= ${message>/}.length }" visible="{= ${message>/}.length > 0 }" type="Emphasized" press="onMessagePopoverPress" />
+                                    <Button id="borrarMensaje" icon="sap-icon://delete" tooltip="Borrar Mensajes" text="" visible="{= ${message>/}.length > 0 }" type="Emphasized" press="onClearMessagePress" />
+                                    
     							</OverflowToolbar>
 							</smartTable:customToolbar>
                             

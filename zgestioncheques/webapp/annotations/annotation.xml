@@ -62,6 +62,9 @@
                 </Annotation>
             </Annotations>
             <Annotations Target="SAP.ZCDS_GESTION_CHEQUES_ODATAType/cme_destino">
+                <Annotation Term="Common.Text" Path="to_destino/zktext_des">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextLast" />
+                </Annotation>
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
                 <Annotation Term="Common.ValueList">
                     <Record Type="Common.ValueListType">
@@ -85,8 +88,8 @@
                     <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly" />
                 </Annotation>
             </Annotations>
-             <Annotations Target="SAP.ZCDS_GESTION_CHEQUES_ODATAType">
-                 <Annotation Term="UI.PresentationVariant">
+            <Annotations Target="SAP.ZCDS_GESTION_CHEQUES_ODATAType">
+                <Annotation Term="UI.PresentationVariant">
                     <Record Type="UI.PresentationVariantType">
                         <PropertyValue Property="SortOrder">
                             <Collection>
@@ -116,7 +119,7 @@
                             </Collection>
                         </PropertyValue>-->
                     </Record>
-                </Annotation> 
+                </Annotation>
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">
@@ -159,9 +162,14 @@
                             <PropertyValue Property="Value" Path="gjahr" />
                             <PropertyValue Property="Label" String="Año" />
                         </Record>
-                        <Record Type="UI.DataField">
+                        <!-- <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="belnr" />
                             <PropertyValue Property="Label" String="Asiento Contable" />
+                        </Record>-->
+                        <Record Type="UI.DataFieldWithUrl">
+                            <PropertyValue Property="Value" Path="belnr" />
+                            <PropertyValue Property="Label" String="Asiento Contable" />
+                            <PropertyValue Property="Url" Path="url" />
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="augdt" />
@@ -232,7 +240,7 @@
                             <PropertyValue Property="Label" String="Vencimiento" />
                             <PropertyValue Property="Criticality" Path="criticality" />
                         </Record>
-                         <Record Type="UI.DataField">
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="usnam" />
                             <PropertyValue Property="Label" String="Modificado Por" />
                         </Record>
