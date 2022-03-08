@@ -62,6 +62,9 @@ sap.ui.define([
                         var log = errorObj1.error.innererror.errordetails;
                         for (var i = 0; i < log.length; i++) {
                             console.log(log[i].message)
+                            if (log[i].code == "/IWBEP/CX_MGW_BUSI_EXCEPTION") {
+
+                            }
                             /*  var oMessage = new Message({
                                   message: log[i].message,
                                   type: MessageType.Success,
@@ -72,71 +75,73 @@ sap.ui.define([
 
                             //
                             //
-                            switch (log[i].severity) {
-                                //case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
-                                //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
-                                //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
-                                //case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
-                                //default:sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
-                                case "error":
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Error,
-                                        description: 'Error',
-                                        processor: newThis.getView().getModel()
+                            else {
+                                switch (log[i].severity) {
+                                    //case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                    //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                    //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                    //case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                    //default:sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                    case "error":
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Error,
+                                            description: 'Error',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
-                                //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
-                                case "success":
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Success,
-                                        description: 'Éxito',
-                                        processor: newThis.getView().getModel()
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
+                                    //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                    case "success":
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Success,
+                                            description: 'Éxito',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
-                                //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
-                                case "warning":
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Warning,
-                                        description: 'Advertencia',
-                                        processor: newThis.getView().getModel()
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
+                                    //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                    case "warning":
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Warning,
+                                            description: 'Advertencia',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
-                                // case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
-                                case "info":
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Information,
-                                        description: 'Información',
-                                        processor: newThis.getView().getModel()
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
+                                    // case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                    case "info":
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Information,
+                                            description: 'Información',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
-                                default:
-                                    //sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Information,
-                                        description: 'Información',
-                                        processor: newThis.getView().getModel()
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
+                                    default:
+                                        //sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Information,
+                                            description: 'Información',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
 
+
+                                }
+                                //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
 
                             }
-                            //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
-
                         }
 
                         oTable.getModel().resetChanges();
@@ -231,68 +236,73 @@ sap.ui.define([
                         var log = errorObj1.error.innererror.errordetails;
                         for (var i = 0; i < log.length; i++) {
                             console.log(log[i].message)
-                            switch (log[i].severity) {
-                                // case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
-                                // case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
-                                // case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
-                                //  case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
-                                //  default:sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
-                                case "error":
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Error,
-                                        description: 'Error',
-                                        processor: newThis.getView().getModel()
+                            if (log[i].code == "/IWBEP/CX_MGW_BUSI_EXCEPTION") {
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
-                                //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
-                                case "success":
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Success,
-                                        description: 'Éxito',
-                                        processor: newThis.getView().getModel()
+                            }
+                            else {
+                                switch (log[i].severity) {
+                                    // case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                    // case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                    // case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                    //  case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                    //  default:sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                    case "error":
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Error,
+                                            description: 'Error',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
-                                //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
-                                case "warning":
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Warning,
-                                        description: 'Advertencia',
-                                        processor: newThis.getView().getModel()
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
+                                    //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                    case "success":
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Success,
+                                            description: 'Éxito',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
-                                // case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
-                                case "info":
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Information,
-                                        description: 'Información',
-                                        processor: newThis.getView().getModel()
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
+                                    //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                    case "warning":
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Warning,
+                                            description: 'Advertencia',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
-                                default:
-                                    //sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
-                                    var oMessage = new Message({
-                                        message: log[i].message,
-                                        type: MessageType.Information,
-                                        description: 'Información',
-                                        processor: newThis.getView().getModel()
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
+                                    // case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                    case "info":
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Information,
+                                            description: 'Información',
+                                            processor: newThis.getView().getModel()
 
-                                    });
-                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
-                                    break;
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
+                                    default:
+                                        //sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                        var oMessage = new Message({
+                                            message: log[i].message,
+                                            type: MessageType.Information,
+                                            description: 'Información',
+                                            processor: newThis.getView().getModel()
+
+                                        });
+                                        sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                        break;
 
 
+                                }
                             }
                             //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
 

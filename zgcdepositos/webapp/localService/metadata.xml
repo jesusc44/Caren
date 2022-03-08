@@ -101,7 +101,8 @@
                 <Property Name="deposito" Type="Edm.String" MaxLength="20" />
                 <Property Name="criticality" Type="Edm.Byte" />
                 <Property Name="usnam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Modificado Por" sap:quickinfo="Nombre del usuario" sap:creatable="false" sap:updatable="false" />
-                <Property Name="url" Type="Edm.String" MaxLength="104" />
+                <Property Name="url" Type="Edm.String" MaxLength="104" sap:creatable="false" sap:updatable="false" />
+                <Property Name="com_xblnr" Type="Edm.String" MaxLength="16" sap:label="Número Deposito" sap:creatable="false" sap:updatable="false" />
                 <NavigationProperty Name="to_cuenta" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_BC639870DB4EDF5B3D87FA26496B23BC" FromRole="FromRole_assoc_BC639870DB4EDF5B3D87FA26496B23BC" ToRole="ToRole_assoc_BC639870DB4EDF5B3D87FA26496B23BC" />
                 <NavigationProperty Name="to_estado" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_4C65A300990B1B60211EFBDB83A28406" FromRole="FromRole_assoc_4C65A300990B1B60211EFBDB83A28406" ToRole="ToRole_assoc_4C65A300990B1B60211EFBDB83A28406" />
                 <NavigationProperty Name="to_origen" Relationship="ZGESTION_CHEQUES_DEPOSITOS_SRV.assoc_52A2D17E8DB21F3A158385A3C1CC299D" FromRole="FromRole_assoc_52A2D17E8DB21F3A158385A3C1CC299D" ToRole="ToRole_assoc_52A2D17E8DB21F3A158385A3C1CC299D" />

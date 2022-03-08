@@ -22,7 +22,7 @@
         <edmx:Include Namespace="ZGESTION_CHEQUES_DEPOSITOS_SRV" Alias="SAP" />
     </edmx:Reference>
     <edmx:DataServices>
-        <Schema Namespace="zgestion_cheques_deposi_anno_mdl.xml" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Schema Namespace="zgestion_cheques_deposi_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
             <Annotations Target="SAP.ZCDS_GC_DEPO_ODATAType/Estado">
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
                 <Annotation Term="Common.ValueList">
@@ -57,19 +57,22 @@
                     </Collection>
                 </Annotation>
             </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/buzei">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/cme_destino">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/tabla">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
-            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/taxnum">
-                <Annotation Term="UI.Hidden" />
-            </Annotations>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/IsActiveDeposito">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/IsActiveAnular">
+                <Annotation Term="UI.Hidden" />
+            </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/accion">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/cuenta">
@@ -81,24 +84,38 @@
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/deposito">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
-            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/accion">
-                <Annotation Term="UI.Hidden" />
-            </Annotations>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/criticality">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
-            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/buzei">
+            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/url">
                 <Annotation Term="UI.Hidden" />
             </Annotations>
+            <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType/kunnr">
+                <Annotation Term="Common.SemanticObject" String="BusinessPartner" />
+            </Annotations>
             <Annotations Target="ZGESTION_CHEQUES_DEPOSITOS_SRV.ZCDS_GC_DEPO_ODATAType">
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Deposito" />
+                        <PropertyValue Property="TypeNamePlural" String="Depositos" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Cliente" />
+                            <PropertyValue Property="Value" Path="kunnr" />
+                        </Record>
+                    </Collection>
+                </Annotation>
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="bukrs" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="taxnum" />
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                            <PropertyValue Property="Label" String="Depositos" />
+                            <PropertyValue Property="Value" Path="bukrs" />
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="CME Origen" />
@@ -116,13 +133,9 @@
                             <PropertyValue Property="Label" String="Año" />
                             <PropertyValue Property="Value" Path="gjahr" />
                         </Record>
-                        <!-- <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="belnr" />
-                            <PropertyValue Property="Label" String="Asiento Contable" />
-                        </Record>-->
                         <Record Type="UI.DataFieldWithUrl">
+                            <PropertyValue Property="Label" String="No. Doc." />
                             <PropertyValue Property="Value" Path="belnr" />
-                            <PropertyValue Property="Label" String="Asiento Contable" />
                             <PropertyValue Property="Url" Path="url" />
                         </Record>
                         <Record Type="UI.DataField">
@@ -156,14 +169,6 @@
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Banco Cheque" />
                             <PropertyValue Property="Value" Path="xref2" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Cliente" />
-                            <PropertyValue Property="Value" Path="kunnr" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Rut Cliente" />
-                            <PropertyValue Property="Value" Path="taxnum" />
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="Garantia Orsan" />
@@ -203,6 +208,14 @@
                             <PropertyValue Property="Value" Path="bschl" />
                         </Record>
                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Modificado Por" />
+                            <PropertyValue Property="Value" Path="usnam" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Rut Cliente" />
+                            <PropertyValue Property="Value" Path="taxnum" />
+                        </Record>
+                        <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="CME Destino" />
                             <PropertyValue Property="Value" Path="cme_destino" />
                         </Record>
@@ -215,15 +228,15 @@
                             <PropertyValue Property="Value" Path="name_org1" />
                         </Record>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Modificado Por" />
-                            <PropertyValue Property="Value" Path="usnam" />
+                            <PropertyValue Property="Label" String="Número Deposito" />
+                            <PropertyValue Property="Value" Path="com_xblnr" />
                         </Record>
                     </Collection>
                 </Annotation>
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
-                        <PropertyPath>taxnum</PropertyPath>
                         <PropertyPath>Estado</PropertyPath>
+                        <PropertyPath>kunnr</PropertyPath>
                         <PropertyPath>bukrs</PropertyPath>
                         <PropertyPath>kunnr</PropertyPath>
                         <PropertyPath>umskz</PropertyPath>

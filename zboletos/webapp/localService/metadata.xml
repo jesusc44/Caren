@@ -48,13 +48,16 @@
                 <Property Name="kunnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Código de Cliente" sap:quickinfo="Destinatario de mercancías" sap:creatable="false" sap:updatable="false" />
                 <Property Name="name" Type="Edm.String" MaxLength="81" sap:label="Nombre de cliente" sap:creatable="false" sap:updatable="false" />
                 <Property Name="volum" Type="Edm.Decimal" Precision="15" Scale="3" sap:label="Volumen" sap:creatable="false" sap:updatable="false" />
-                <Property Name="num_tras" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Transporte" sap:quickinfo="Documento comercial subsiguiente" sap:creatable="false" sap:updatable="false" />
+                <Property Name="num_tras" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Transporte" sap:quickinfo="Nº de transporte" sap:creatable="false" sap:updatable="false" />
                 <Property Name="estatus" Type="Edm.String" MaxLength="20" sap:label="Estatus del transporte" sap:creatable="false" sap:updatable="false" />
                 <Property Name="ename" Type="Edm.String" MaxLength="40" sap:label="Vendedor" sap:quickinfo="Nombre editado del empleado o candidato" sap:creatable="false" sap:updatable="false" />
                 <Property Name="orden_transporte" Type="Edm.String" MaxLength="45" sap:label="Orden de Transporte" sap:quickinfo="Orden Transporte" />
                 <Property Name="desc_blart" Type="Edm.String" MaxLength="23" sap:label="Clase de Factura" sap:creatable="false" sap:updatable="false" />
                 <Property Name="desc_lfart" Type="Edm.String" MaxLength="25" sap:label="Clase de Entrega" sap:creatable="false" sap:updatable="false" />
                 <Property Name="ped_ventas" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Pedido de Ventas" sap:quickinfo="Documento comercial anterior" sap:creatable="false" sap:updatable="false" />
+                <Property Name="werks" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro" />
+                <Property Name="url" Type="Edm.String" MaxLength="94" sap:creatable="false" sap:updatable="false" />
+                <Property Name="url2" Type="Edm.String" MaxLength="116" sap:creatable="false" sap:updatable="false" />
             </EntityType>
             <EntityContainer Name="ZGW_BOLETOS_SRV_02_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="ZVSD_BOLETOS_ODATA" EntityType="ZGW_BOLETOS_SRV_02.ZVSD_BOLETOS_ODATAType" sap:creatable="false" sap:deletable="false" sap:content-version="1" />
