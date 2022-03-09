@@ -304,7 +304,7 @@ sap.ui.define([
                                 this.byId("editButton").setVisible(true);
                                 this.byId("multiEditButton").setVisible(false);
                                 this.byId("castigarButton").setVisible(false);
-                                this.byId("anularButton").setVisible(fals);
+                                this.byId("anularButton").setVisible(false);
                                 // this.byId("depositoButton").setVisible(true);
                                 //this.byId("anularButton").setVisible(true);
 
