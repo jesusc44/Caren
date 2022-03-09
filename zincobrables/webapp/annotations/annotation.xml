@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zgw_incobrables_srv/$metadata">
+        <edmx:Include Namespace="ZGW_INCOBRABLES_SRV" Alias="SAP" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="ZGW_INCOBRABLES_ANNO_MDL.xml" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="SAP.ZCDS_CASTIGO_INCOBRABLE_ODATAType/Estado">
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZAYUDA_ESTADO_INCOBRABLE" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Estado" />
+                                    <PropertyValue Property="ValueListProperty" String="estado" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="estado" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZCDS_CASTIGO_INCOBRABLE_ODATAType/umskz">
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZAYUDA_CME_ORIGEN_INCOBRABLE" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="umskz" />
+                                    <PropertyValue Property="ValueListProperty" String="z_zumskz_ori" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="z_zktext_ori" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZCDS_CASTIGO_INCOBRABLE_ODATAType/cme_destino">
+                <Annotation Term="Common.Text" Path="to_destino/zktext_des">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextLast" />
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZAYUDA_CME_DESTINO_INCOBRABLE" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="cme_destino" />
+                                    <PropertyValue Property="ValueListProperty" String="zumskz_des" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="zktext_des" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZAYUDA_CME_DESTINO_INCOBRABLEType/zumskz_des">
+                <Annotation Term="Common.Text" Path="zktext_des">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly" />
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP.ZCDS_CASTIGO_INCOBRABLE_ODATAType">
+                <Annotation Term="UI.PresentationVariant">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="vencimiento" />
+                                    <PropertyValue Property="Descending" Bool="true" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <!--     <PropertyValue Property="GroupBy">
+                            <Collection>
+                                    <PropertyPath>kunnr</PropertyPath> />
+                                    <PropertyPath>belnr</PropertyPath> />
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TotalBy" />
+                        <PropertyValue Property="Total" />
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequestAtLeast">
+                            <Collection>
+                                    <PropertyPath>kunnr</PropertyPath> />
+                                    <PropertyPath>belnr</PropertyPath> />
+                            </Collection>
+                        </PropertyValue>-->
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Estado" />
+                            <PropertyValue Property="Label" String="Estado" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="bukrs" />
+                            <PropertyValue Property="Label" String="Sociedad" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="kunnr" />
+                            <PropertyValue Property="Label" String="Cliente" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="taxnum" />
+                            <PropertyValue Property="Label" String="Rut Cliente" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="name_org1" />
+                            <PropertyValue Property="Label" String="Nombre Cliente" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="umskz" />
+                            <PropertyValue Property="Label" String="CME Origen" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ltext" />
+                            <PropertyValue Property="Label" String="Desc.CME" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="cme_destino" />
+                            <PropertyValue Property="Label" String="CME Destino" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="blart" />
+                            <PropertyValue Property="Label" String="Tipo Asiento Contable" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="gjahr" />
+                            <PropertyValue Property="Label" String="Año" />
+                        </Record>
+                        <!-- <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="belnr" />
+                            <PropertyValue Property="Label" String="Asiento Contable" />
+                        </Record>-->
+                        <Record Type="UI.DataFieldWithUrl">
+                            <PropertyValue Property="Value" Path="belnr" />
+                            <PropertyValue Property="Label" String="Asiento Contable" />
+                            <PropertyValue Property="Url" Path="url" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="augdt" />
+                            <PropertyValue Property="Label" String="Fecha Compensación" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="augbl" />
+                            <PropertyValue Property="Label" String="Doc. Compensación" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="budat" />
+                            <PropertyValue Property="Label" String="Fecha Contabilización" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="bldat" />
+                            <PropertyValue Property="Label" String="Fecha Documento" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="xblnr" />
+                            <PropertyValue Property="Label" String="Referencia" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="zuonr" />
+                            <PropertyValue Property="Label" String="Asignación" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="xref1" />
+                            <PropertyValue Property="Label" String="Nro. Cheque" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="xref2" />
+                            <PropertyValue Property="Label" String="Banco Cheque" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="xref3" />
+                            <PropertyValue Property="Label" String="Garantia Orsan" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="zfbdt" />
+                            <PropertyValue Property="Label" String="Fecha Cheque" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="wrbtr" />
+                            <PropertyValue Property="Label" String="Monto" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="waers" />
+                            <PropertyValue Property="Label" String="Moneda" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="sgtxt" />
+                            <PropertyValue Property="Label" String="Glosa" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="zterm" />
+                            <PropertyValue Property="Label" String="Condc.pago" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="monat" />
+                            <PropertyValue Property="Label" String="mes" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="bschl" />
+                            <PropertyValue Property="Label" String="Clav. Contb" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="vencimiento" />
+                            <PropertyValue Property="Label" String="Vencimiento" />
+                            <PropertyValue Property="Criticality" Path="criticality" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="usnam" />
+                            <PropertyValue Property="Label" String="Modificado Por" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

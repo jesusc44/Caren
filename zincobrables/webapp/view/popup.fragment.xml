@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:sf="sap.ui.comp.smartform"
+		xmlns:core="sap.ui.core"
+		xmlns:smartmultiedit="sap.ui.comp.smartmultiedit">
+	<Dialog
+			title="Castigar"
+			class="sapUiContentPadding"			
+			id="multipleEditingDialog"
+			contentWidth="30rem"
+			horizontalScrolling="false">
+		<content>
+        <Label text="Centro Costo" labelFor="cecoInput"/>
+			<Input
+				id="cecoInput"
+				type="Text"
+				placeholder="Ingrese Centro Costo"
+                required="true"
+			     valueHelpRequest="handleValueHelp"
+				 showValueHelp="true"> 
+			</Input>
+        <Label text="Glosa" labelFor="glosaInput"/>
+            <Input
+				id="glosaInput"
+				type="Text"
+				placeholder="Ingrese Glosa"
+                required="true"
+				showValueHelp="false"> 
+			</Input>
+			
+		</content>
+		<buttons>
+			<Button text="Guardar" press="onDialogSaveButtonCastigar" type="Emphasized"/>
+			<Button text="Cancelar" press="onCloseDialogCastigar"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
