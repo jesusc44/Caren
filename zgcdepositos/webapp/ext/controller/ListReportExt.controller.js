@@ -8,7 +8,9 @@ sap.ui.define([
     function (Fragment, syncStyleClass, MessageToast, Message, library) {
         "use strict";
         var MessageType = library.MessageType;
+        var toolbarId = "zgcdepositos.zgcdepositos::sap.suite.ui.generic.template.ListReport.view.ListReport::ZCDS_GC_DEPO_ODATA--template::ListReport::TableToolbar"
         return {
+
             onInit: function (params) {
                 var oMessageManager, oView;
 
@@ -18,9 +20,33 @@ sap.ui.define([
                 oView.setModel(oMessageManager.getMessageModel(), "message");
                 // or just do it for the whole view
                 oMessageManager.registerObject(oView, true);
-
-
-
+            },
+            onAfterRendering: function () {
+                var that = this;
+                var customBtn = new sap.m.Button({
+                    press: function (oEvent) {
+                        var oSourceControl = oEvent.getSource();
+                        that._getMessagePopover().then(function (oMessagePopover) {
+                            oMessagePopover.openBy(oSourceControl);
+                        });
+                    },
+                    icon: 'sap-icon://alert',
+                    type: sap.m.ButtonType.Emphasized,
+                    text: "{= ${message>/}.length }",
+                    visible: "{= ${message>/}.length > 0 }",
+                    tooltip:"Mostrar Mensaje"
+                });
+                var customClearBtn = new sap.m.Button({
+                    press: function () {
+                        sap.ui.getCore().getMessageManager().removeAllMessages();
+                    },
+                    icon: 'sap-icon://delete',
+                    type: sap.m.ButtonType.Emphasized,
+                    visible: "{= ${message>/}.length > 0 }",
+                    tooltip:"Borrar Mensaje"
+                });
+                this.byId(toolbarId).insertContent(customBtn, 4);
+                this.byId(toolbarId).insertContent(customClearBtn, 5);
             },
             onDepositos: function (oEvent) {
                 Fragment.load({
@@ -321,16 +347,6 @@ sap.ui.define([
 
                 this._cerrarDialogo();
             },
-            onMessagePopoverPress: function (oEvent) {
-                var oSourceControl = oEvent.getSource();
-                this._getMessagePopover().then(function (oMessagePopover) {
-                    oMessagePopover.openBy(oSourceControl);
-                });
-
-            },
-            onClearMessagePress: function () {
-                sap.ui.getCore().getMessageManager().removeAllMessages();
-            },
             _getMessagePopover: function () {
                 var oView = this.getView();
                 // create popover lazily (singleton)
@@ -346,6 +362,40 @@ sap.ui.define([
                 }
                 return this._pMessagePopover;
             },
+        onNavigation: function(oEvent) {
+            sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then( function (oService) {
 
-        };
+                var sHref = oService.hrefForExternal({
+                    target : {
+                        semanticObject : "zgestioncheques",
+                        action : "manage" }
+                    
+                }) || "";
+                oService.toExternal({
+                    target: {
+                        shellHash: sHref
+                    }
+                });         
+           
+                // do something with sHref
+             });
+
+
+
+           /* sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then(function (oService) {
+                oService.hrefForExternalAsync({
+                    target : {                        
+                        semanticObject : "zgestioncheques",
+                        action : "manage"
+                    }
+                }).then( function(sHref) {                      
+                    oService.toExternal({
+                        target: {
+                            shellHash: sHref
+                        }
+                    });            
+                });
+            });*/
+        }
+    };
     });

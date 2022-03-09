@@ -40,7 +40,6 @@
                 }
             }
         },
-        
         "offline": false,
         "sourceTemplate": {
             "id": "ui5template.smartTemplate",
@@ -134,20 +133,12 @@
                                         "press": "onAnular",
                                         "requiresSelection": true
                                     },
-                                    "mostrarMensaje": {
-                                        "id": "mostrarMensaje",
-                                        "text": "Mostrar Mensaje",
-                                        "press": "onMessagePopoverPress",
-                                        "requiresSelection": false
-                                    },
-                                    "borrarMensaje": {
-                                        "id": "borrarMensaje",
-                                        "text": "Borrar Mensaje",
-                                        "press": "onClearMessagePress",
-                                        "requiresSelection": false
-                                        
+                                    "navigationId": {
+                                        "id": "navigationIdButton",
+                                        "text": "Ir a Gestión de Cheques",
+                                        "press": "onNavigation",
+                                        "global": true
                                     }
-
                                 }
                             }
                         }

@@ -203,7 +203,8 @@ sap.ui.define([
                         cancelBtn.setVisible(false);
                         multiBtn.setVisible(false);
                         editBtn.setVisible(true);
-                        castiBtn.setVisible(false)
+                        castiBtn.setVisible(false);
+                        anulBtn.setVisible(false);
                         // deposBtn.setVisible(true);
                         // anulBtn.setVisible(true);
                     },

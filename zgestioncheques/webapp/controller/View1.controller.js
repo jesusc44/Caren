@@ -17,9 +17,6 @@ sap.ui.define([
     function (Controller, MessageToast, Fragment, syncStyleClass, Dialog, DialogType, Button, ButtonType, Text, Message, library) {
         "use strict";
         var MessageType = library.MessageType;
-
-
-
         return Controller.extend("zgestioncheques.zgestioncheques.controller.View1", {
             onInit: function () {
                 var oMessageManager, oView;
@@ -422,6 +419,25 @@ sap.ui.define([
             },
             onClearMessagePress: function () {
                 sap.ui.getCore().getMessageManager().removeAllMessages();
+            },
+            onNavigation: function(oEvent) {
+                sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then( function (oService) {
+    
+                    var sHref = oService.hrefForExternal({
+                        target : {
+                            semanticObject : "zgcdepositos",
+                            action : "manage" }
+                        
+                    }) || "";
+                    oService.toExternal({
+                        target: {
+                            shellHash: sHref
+                        }
+                    });         
+               
+                    // do something with sHref
+                 });
+    
             }
         });
     });
