@@ -727,5 +727,24 @@ sap.ui.define([
                 this.oPopup.destroy();
                 this.oPopup = null;
             },
+            onNavigation: function(oEvent) {
+                sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then( function (oService) {
+    
+                    var sHref = oService.hrefForExternal({
+                        target : {
+                            semanticObject : "zprovision",
+                            action : "manage" }
+                        
+                    }) || "";
+                    oService.toExternal({
+                        target: {
+                            shellHash: sHref
+                        }
+                    });         
+               
+                    // do something with sHref
+                 });
+    
+            }
         });
     });

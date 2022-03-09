@@ -14,6 +14,12 @@
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
+                    <headerContent>
+                        <Button
+                            icon="sap-icon://action"
+                            text="Ir a Provisión"
+                            press="onNavigation" />
+                    </headerContent>
 					<VBox width="100%" 
                         fitContainer="true">
 						<smartFilterBar:SmartFilterBar 
