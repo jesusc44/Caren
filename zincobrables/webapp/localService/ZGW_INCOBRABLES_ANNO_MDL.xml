@@ -157,7 +157,7 @@
 							<PropertyValue Property="Value" Path="vencimiento"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Label" String="Fecha Cheque"/>
+							<PropertyValue Property="Label" String="Fecha Cheque/Vcmto"/>
 							<PropertyValue Property="Value" Path="zfbdt"/>
 						</Record>
 						<Record Type="UI.DataField">

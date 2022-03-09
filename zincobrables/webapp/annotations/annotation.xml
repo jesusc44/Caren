@@ -209,7 +209,7 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="zfbdt" />
-                            <PropertyValue Property="Label" String="Fecha Cheque" />
+                            <PropertyValue Property="Label" String="Fecha Cheque/Vcmto" />
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="wrbtr" />
