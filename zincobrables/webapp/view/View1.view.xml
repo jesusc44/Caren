@@ -17,7 +17,7 @@
                     <headerContent>
                         <Button
                             icon="sap-icon://action"
-                            text="Ir a Provisión"
+                            text="Ir a Provisión Incobrable"
                             press="onNavigation" />
                     </headerContent>
 					<VBox width="100%" 
