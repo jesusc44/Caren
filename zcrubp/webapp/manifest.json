@@ -140,7 +140,8 @@
                         "sap.ui.generic.app": {
                             "ZCBP_Datos_ODATA": {
                                 "EntitySet": "ZCBP_Datos_ODATA",
-                                "Actions": {}
+                                "Actions": {                                    
+                                }
                             }
                         }
                     }

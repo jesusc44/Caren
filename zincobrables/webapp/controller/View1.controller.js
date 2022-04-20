@@ -473,6 +473,7 @@ sap.ui.define([
                         var oContext = oTable.getContextByIndex(indice);
                         oContext.getModel().setProperty(oContext.getPath() + '/accion', '2');
                         console.log(oContext.getPath());
+
                     }
                     oTable.getContextByIndex(0).getModel().submitChanges({
                         success: function (oData, oResponse) {
@@ -485,7 +486,7 @@ sap.ui.define([
                             for (var i = 0; i < log.length; i++) {
                                 console.log(log[i].message)
                                 if (log[i].code == "/IWBEP/CX_MGW_BUSI_EXCEPTION") {
-    
+
                                 }
                                 else {
                                     switch (log[i].severity) {
@@ -500,7 +501,7 @@ sap.ui.define([
                                                 type: MessageType.Error,
                                                 description: 'Error',
                                                 processor: newThis.getView().getModel()
-    
+
                                             });
                                             sap.ui.getCore().getMessageManager().addMessages(oMessage);
                                             break;
@@ -511,7 +512,7 @@ sap.ui.define([
                                                 type: MessageType.Success,
                                                 description: 'Éxito',
                                                 processor: newThis.getView().getModel()
-    
+
                                             });
                                             sap.ui.getCore().getMessageManager().addMessages(oMessage);
                                             break;
@@ -522,7 +523,7 @@ sap.ui.define([
                                                 type: MessageType.Warning,
                                                 description: 'Advertencia',
                                                 processor: newThis.getView().getModel()
-    
+
                                             });
                                             sap.ui.getCore().getMessageManager().addMessages(oMessage);
                                             break;
@@ -533,7 +534,7 @@ sap.ui.define([
                                                 type: MessageType.Information,
                                                 description: 'Información',
                                                 processor: newThis.getView().getModel()
-    
+
                                             });
                                             sap.ui.getCore().getMessageManager().addMessages(oMessage);
                                             break;
@@ -544,16 +545,16 @@ sap.ui.define([
                                                 type: MessageType.Information,
                                                 description: 'Información',
                                                 processor: newThis.getView().getModel()
-    
+
                                             });
                                             sap.ui.getCore().getMessageManager().addMessages(oMessage);
                                             break;
-    
-    
+
+
                                     }
                                 }
                                 //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
-    
+
                             }
                             // MessageToast.show("Cambios guardados exitosamente");
                             oTable.getModel().resetChanges()
@@ -727,24 +728,25 @@ sap.ui.define([
                 this.oPopup.destroy();
                 this.oPopup = null;
             },
-            onNavigation: function(oEvent) {
-                sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then( function (oService) {
-    
+            onNavigation: function (oEvent) {
+                sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then(function (oService) {
+
                     var sHref = oService.hrefForExternal({
-                        target : {
-                            semanticObject : "zprovision",
-                            action : "manage" }
-                        
+                        target: {
+                            semanticObject: "zprovision",
+                            action: "manage"
+                        }
+
                     }) || "";
                     oService.toExternal({
                         target: {
                             shellHash: sHref
                         }
-                    });         
-               
+                    });
+
                     // do something with sHref
-                 });
-    
+                });
+
             }
         });
     });

@@ -10,6 +10,9 @@ sap.ui.define([
 ],
     function (Controller) {
         "use strict";
+
+        var oCrearGenericBtnId = "zcrubp.zcrubp::sap.suite.ui.generic.template.ListReport.view.ListReport::ZCBP_Datos_ODATA--addEntry";        
+
         return sap.ui.controller("zcrubp.zcrubp.ext.controller.ListReportExt",
             {
                 /**
@@ -19,11 +22,37 @@ sap.ui.define([
                     //var oFilter = this.getView().getModel();
                     var oFilter = this.byId("zcrubp.zcrubp::sap.suite.ui.generic.template.ListReport.view.ListReport::ZCBP_Datos_ODATA--listReportFilter-filterItemControl_BASIC-mc_name1");
                     console.log(oFilter);
-                    oFilter.onChange(function(Oid){
+                    /*oFilter.onChange(function(Oid){
                         console.log(Oid);
-                    }
-                    );
+                    });*/
                     //var sPartnerName = oFilter.getProperty("/mc_name1");
+
+
+                    //Para la creación de BP
+                    var oCrearBtn = this.byId(oCrearGenericBtnId);                                      
+                    var complete_url = window.location.href;                    
+                    var pieces = complete_url.split("?");
+                    var params = pieces[1].split("&");
+                    $.each( params, function( key, value ) {  
+                        var param_value = value.split("=");
+                        console.log(value)
+                        if(param_value[0] == "RUT"){
+                            if(param_value[1].indexOf("#") !=- 1){                                
+                                if (sap.ui.getCore().cargoObjectPage == undefined){
+                                    var rutVal = param_value[1].substring(0,param_value[1].indexOf("#"))                                                                                                                  
+                                    sap.ui.getCore().creacionNuevoRut = rutVal;                                    
+                                    oCrearBtn.firePress();                                    
+                                }                                
+                                
+                            }
+                            else{                                                                  
+                                if (sap.ui.getCore().cargoObjectPage == undefined){
+                                    sap.ui.getCore().creacionNuevoRut = param_value[1];                                     
+                                    oCrearBtn.firePress();                                    
+                                }                        
+                            }
+                        }                                
+                    });
                     
 
                 },

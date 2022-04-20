@@ -44,7 +44,7 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="mc_name2" />
-                            <PropertyValue Property="Label" String="Razón Social 2/Nombre" />
+                            <PropertyValue Property="Label" String="Razón Social/Nombre" />
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="name_org2" />
@@ -52,7 +52,7 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="mc_name1" />
-                            <PropertyValue Property="Label" String="Razón Social/Apellido" />
+                            <PropertyValue Property="Label" String="Razón Social 2/Apellido" />
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="name_org4" />
@@ -148,7 +148,7 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="mc_name2" />
-                                    <PropertyValue Property="Label" String="Razón Social 2/Nombre" />
+                                    <PropertyValue Property="Label" String="Razón Social/Nombre" />
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="name_org2" />
@@ -156,7 +156,7 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="mc_name1" />
-                                    <PropertyValue Property="Label" String="Razón Social/Apellido" />
+                                    <PropertyValue Property="Label" String="Razón Social 2/Apellido" />
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="name_org4" />
@@ -178,10 +178,10 @@
                                     <PropertyValue Property="Value" Path="house_num1" />
                                     <PropertyValue Property="Label" String="Número" />
                                 </Record>
-                                <Record Type="UI.DataField">
+                                <!--<Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="country" />
                                     <PropertyValue Property="Label" String="Clave País" />
-                                </Record>
+                                </Record>-->
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="region" />
                                     <PropertyValue Property="Label" String="Región" />
