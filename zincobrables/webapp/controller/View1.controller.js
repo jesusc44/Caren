@@ -10,11 +10,12 @@ sap.ui.define([
     "sap/m/Text",
     "sap/ui/core/message/Message",
     "sap/ui/core/library",
+    "sap/ui/model/Filter",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, Fragment, syncStyleClass, Dialog, DialogType, Button, ButtonType, Text, Message, library) {
+    function (Controller, MessageToast, Fragment, syncStyleClass, Dialog, DialogType, Button, ButtonType, Text, Message, library,Filter) {
         "use strict";
         var MessageType = library.MessageType;
 
@@ -705,7 +706,8 @@ sap.ui.define([
             _handleValueHelpSearch: function (evt) {
                 var sValue = evt.getParameter("value");
                 var oFilter = new Filter(
-                    "kostl",
+                    "ktext",
+                    //"kostl",
                     sap.ui.model.FilterOperator.Contains, sValue
                 );
                 evt.getSource().getBinding("items").filter([oFilter]);

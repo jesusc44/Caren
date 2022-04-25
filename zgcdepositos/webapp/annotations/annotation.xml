@@ -111,10 +111,7 @@
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="bukrs" />
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="Depositos" />
+                            <PropertyValue Property="Label" String="Sociedad" />
                             <PropertyValue Property="Value" Path="bukrs" />
                         </Record>
                         <Record Type="UI.DataField">
