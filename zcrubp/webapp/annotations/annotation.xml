@@ -206,6 +206,15 @@
                                     <PropertyValue Property="Value" Path="limite" />
                                     <PropertyValue Property="Label" String="Comprometido" />
                                 </Record>
+
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="consumido" />
+                                    <PropertyValue Property="Label" String="Consumido" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="disponible" />
+                                    <PropertyValue Property="Label" String="Disponible" />
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
