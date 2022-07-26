@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Cuenta Devolución"
+		class="sapUiPopupWithPadding"
+		items="{/ZAYUDA_CUENTA_DEV}"
+		search="_handleValueHelpSearchDev"
+		confirm="_handleValueHelpCloseDev"
+		cancel="_handleValueHelpCloseDev">
+		<StandardListItem			
+			title="{zhkont}"
+			description="{zktext}" />
+	</SelectDialog>
+</core:FragmentDefinition>

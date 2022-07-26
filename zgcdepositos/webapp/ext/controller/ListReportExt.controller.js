@@ -172,7 +172,7 @@ sap.ui.define([
 
                         oTable.getModel().resetChanges();
 
-                        mostrarMensajeButton.firePress();
+                       // mostrarMensajeButton.firePress();
 
                         //sap.
                         //console.log(errorObj1);
@@ -228,7 +228,8 @@ sap.ui.define([
                 this.oPopup.destroy();
                 this.oPopup = null;
             },
-            onDialogSaveButton: function (oEvent) {
+            onDialogSaveButton: function (oEvent) 
+            {
                 var cuentaData = sap.ui.getCore().byId("cuentaInput").getValue();
                 var fechaData = sap.ui.getCore().byId("fechaInput").getDateValue();
                 var mostrarMensajeButton = this.byId("mostrarMensaje");
@@ -335,7 +336,7 @@ sap.ui.define([
                         }
                         // MessageToast.show("Cambios guardados exitosamente");
                         oTable.getModel().resetChanges()
-                        mostrarMensajeButton.firePress();
+                      //  mostrarMensajeButton.firePress();
                     },
                     error: function (oError) {
                         // Error
@@ -396,6 +397,183 @@ sap.ui.define([
                     });            
                 });
             });*/
-        }
+        },
+        onDevolucion: function (oEvent) {
+            Fragment.load({
+                name: "zgcdepositos.zgcdepositos.ext.fragment.popupDev",
+                controller: this,
+                type: "XML"
+            }).then(function (oFragment) {
+                this.oPopupDev = oFragment;
+                this.getView().addDependent(this.oPopupDev);
+                this.oPopupDev.setEscapeHandler(function () { this.onCloseDevDialog(); }.bind(this));
+
+
+                //this.oMultiEditDialog.getContent()[0].setContexts(selectedContexts);
+                syncStyleClass("sapUiSizeCompact", this.getView(), this.oPopupDev);
+                this.oPopupDev.open();
+            }.bind(this));
+        },
+        onCloseDevDialog: function () {
+            this._cerrarDialogoDev();
+        },
+        _cerrarDialogoDev: function () {
+            this.oPopupDev.close();
+            this.oPopupDev.destroy();
+            this.oPopupDev = null;
+        },
+        handleValueHelpDev: function (oEvent) {
+            var sInputValue = oEvent.getSource().getValue();
+
+            this.inputId = oEvent.getSource().getId();
+            // create value help dialog
+            if (!this._valueHelpDialogDev) {
+                this._valueHelpDialogDev = sap.ui.xmlfragment(
+                    "zgcdepositos.zgcdepositos.ext.fragment.ValueHelpDev",
+                    this
+                );
+                this.getView().addDependent(this._valueHelpDialogDev);
+            }
+
+            // open value help dialog filtered by the input value
+            this._valueHelpDialogDev.open(sInputValue);
+        },
+        _handleValueHelpSearchDev: function (evt) {
+            var sValue = evt.getParameter("value");
+            var oFilter = new Filter(
+                "zhkont",
+                sap.ui.model.FilterOperator.Contains, sValue
+            );
+            evt.getSource().getBinding("items").filter([oFilter]);
+        },
+        _handleValueHelpCloseDev: function (evt) {
+            var oSelectedItem = evt.getParameter("selectedItem");
+            if (oSelectedItem) {
+                var cuentaInp = sap.ui.getCore().byId("cuentaDevInput");
+                cuentaInp.setValue(oSelectedItem.getTitle());
+            }
+            evt.getSource().getBinding("items").filter([]);
+        },
+        onDialogDevSaveButton: function (oEvent) 
+        {
+            var cuentaData = sap.ui.getCore().byId("cuentaDevInput").getValue();
+            var fechaData = sap.ui.getCore().byId("fechaDevInput").getDateValue();
+            
+            var mostrarMensajeButton = this.byId("mostrarMensaje");
+
+            //console.log(fechaData)
+            //var numData = sap.ui.getCore().byId("numInput").getValue();
+            var oTable = this.byId("zgcdepositos.zgcdepositos::sap.suite.ui.generic.template.ListReport.view.ListReport::ZCDS_GC_DEPO_ODATA--GridTable");
+            //var oTable=oTableSmart.getTable();
+            //console.log(oTable.getPlugins()[0].getSelectedIndices())
+            var sItems = []
+            var sItems = oTable.getPlugins()[0].getSelectedIndices();
+            var newThis = this;
+            //console.log(sItems) 
+            for (var i = 0; i < sItems.length; i++) {
+                var indice = sItems[i];
+                var oContext = oTable.getContextByIndex(indice);
+                oContext.getModel().setProperty(oContext.getPath() + '/cuenta_dev', cuentaData);
+                oContext.getModel().setProperty(oContext.getPath() + '/fecha_dev', fechaData);
+
+                oContext.getModel().setProperty(oContext.getPath() + '/accion', '3');
+                console.log(oContext.getPath());
+            }
+
+            oTable.getContextByIndex(0).getModel().submitChanges({
+                success: function (oData, oResponse) {
+                    // Success
+                    oTable.getModel().refresh(true);
+                    //console.log(oResponse)
+                    var errorObj1 = JSON.parse(oResponse.data.__batchResponses[0].response.body);
+                    //console.log(errorObj1)
+                    var log = errorObj1.error.innererror.errordetails;
+                    for (var i = 0; i < log.length; i++) {
+                        console.log(log[i].message)
+                        if (log[i].code == "/IWBEP/CX_MGW_BUSI_EXCEPTION") {
+
+                        }
+                        else {
+                            switch (log[i].severity) {
+                                // case "error": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                // case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                // case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                //  case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                //  default:sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                case "error":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Error,
+                                        description: 'Error',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                //case "success": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.SUCCESS, "Éxito"); break;
+                                case "success":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Success,
+                                        description: 'Éxito',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                //case "warning": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.WARNING, "Advertencia"); break;
+                                case "warning":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Warning,
+                                        description: 'Advertencia',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                // case "info": sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.INFORMATION, "Información"); break;
+                                case "info":
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Information,
+                                        description: 'Información',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+                                default:
+                                    //sap.m.MessageBox.show(log[i].message, sap.m.MessageBox.Icon.NONE, ""); break;
+                                    var oMessage = new Message({
+                                        message: log[i].message,
+                                        type: MessageType.Information,
+                                        description: 'Información',
+                                        processor: newThis.getView().getModel()
+
+                                    });
+                                    sap.ui.getCore().getMessageManager().addMessages(oMessage);
+                                    break;
+
+
+                            }
+                        }
+                        //sap.m.MessageBox.show(log[i].message, icono, log[i].message);
+
+                    }
+                    // MessageToast.show("Cambios guardados exitosamente");
+                    oTable.getModel().resetChanges()
+                    //mostrarMensajeButton.firePress();
+                },
+                error: function (oError) {
+                    // Error
+                    MessageToast.show("Error al guardar los cambios");
+                }
+            });
+
+
+
+            this._cerrarDialogoDev();
+        },
     };
     });

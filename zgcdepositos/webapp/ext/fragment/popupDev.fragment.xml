@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:sf="sap.ui.comp.smartform"
+		xmlns:core="sap.ui.core"
+		xmlns:smartmultiedit="sap.ui.comp.smartmultiedit">
+	<Dialog
+			title="Devolución"
+			class="sapUiContentPadding"			
+			id="multipleEditingDialog"
+			contentWidth="30rem"
+			horizontalScrolling="false">
+		<content>
+        <Label text="Cuenta Contable" labelFor="cuentaDevInput"/>
+			<Input
+				id="cuentaDevInput"
+				type="Text"
+				placeholder="Ingrese la Cuenta"
+                required="true"
+			     valueHelpRequest="handleValueHelpDev"
+				 showValueHelp="true"> 
+			</Input>
+            <Label text="Fecha Devolución" labelFor="fechaDevInput"/>
+		<DatePicker
+			id="fechaDevInput"
+			placeholder="Ingrese Fecha"
+			change="handleChange"
+            required="true"
+			class="sapUiSmallMarginBottom"/>
+        </content>
+		<buttons>
+			<Button text="Guardar" press="onDialogDevSaveButton" type="Emphasized"/>
+			<Button text="Cancelar" press="onCloseDevDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
